@@ -48,7 +48,7 @@ files.forEach(f => {
 });
 
 console.log('\n2. Internal Links Validation:');
-const validRoutes = ['/', '/about', '/solutions', '/products-ventures', '/innovation-research', '/contact', '/privacy-policy'];
+const validRoutes = ['/', '/about', '/solutions', '/products-ventures', '/innovation-research', '/marketplace', '/shop', '/contact', '/privacy-policy'];
 let brokenCount = 0;
 internalLinks.forEach(link => {
   const base = link.to.split('#')[0] || '/';

@@ -38,8 +38,13 @@ export const Footer: React.FC = () => {
 
           {/* Solutions Column */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-4">Solutions</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-4">Commerce & Solutions</h4>
             <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/marketplace" className="text-gold-400 font-semibold hover:text-gold-300 transition-colors">
+                  कृषि बाज़ार (Marketplace)
+                </Link>
+              </li>
               <li>
                 <Link to="/solutions#precision-agronomy" className="hover:text-nature-300 transition-colors">
                   Precision Agronomy

@@ -151,3 +151,4 @@ During Phase 3 execution:
    - Deploy an authenticated Cloudflare Worker / microservice to handle corporate contact form inquiries and replace the current staging `mailto:` fallback.
 3. **Continuous Deployment (CI/CD):**
    - Connect the public GitHub repository `https://github.com/khileshchandel/HarKhil-Agro-Landing` to Cloudflare Pages for automatic deployments on push to `main`.
+

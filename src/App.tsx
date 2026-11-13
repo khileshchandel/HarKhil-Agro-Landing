@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
@@ -7,6 +7,7 @@ import { About } from './pages/About';
 import { Solutions } from './pages/Solutions';
 import { ProductsVentures } from './pages/ProductsVentures';
 import { InnovationResearch } from './pages/InnovationResearch';
+import { Marketplace } from './pages/Marketplace';
 import { Contact } from './pages/Contact';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { Button } from './components/UI';
@@ -50,6 +51,8 @@ export const App: React.FC = () => {
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/products-ventures" element={<ProductsVentures />} />
             <Route path="/innovation-research" element={<InnovationResearch />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/shop" element={<Navigate to="/marketplace" replace />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="*" element={<NotFound />} />

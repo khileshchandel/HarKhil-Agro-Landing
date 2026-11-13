@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight, CheckCircle2, Shield, Leaf, BarChart3, Database, Cpu, Compass, Layers, Sparkles, ShoppingBag } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Shield, Leaf, BarChart3, Database, Cpu, Compass, Layers, Sparkles, ShoppingBag } from 'lucide-react';
 import { Button, Card, Badge, SectionHeader } from '../components/UI';
 import { SEO } from '../components/SEO';
 
@@ -41,20 +41,14 @@ export const Home: React.FC = () => {
 
             {/* Action Buttons */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <Button to="/marketplace" variant="gold" size="lg">
+                <ShoppingBag className="w-4 h-4 mr-1 text-forest-950" />
+                <span>कृषि बाज़ार / Marketplace</span>
+              </Button>
               <Button to="/solutions" variant="primary" size="lg">
                 <span>Explore Solutions</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
-              <a
-                href="https://market.agro.harkhil.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm bg-gold-400/20 border border-gold-500/40 text-forest-900 hover:bg-gold-400/30 transition-all shadow-xs"
-              >
-                <ShoppingBag className="w-4 h-4 text-forest-900" />
-                <span>मार्केटप्लेस / Marketplace</span>
-                <ArrowUpRight className="w-4 h-4 text-warm-600" />
-              </a>
               <Button to="/about" variant="outline" size="lg">
                 <span>Our Philosophy</span>
               </Button>
