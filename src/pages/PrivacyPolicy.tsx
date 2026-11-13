@@ -52,8 +52,8 @@ export const PrivacyPolicy: React.FC = () => {
               </h2>
               <p>
                 This Privacy Policy governs the processing of information collected through our official digital
-                properties (including <code>agro.harkhil.com</code>), field diagnostic tools, the HarKhil Krishi
-                platform, retail Point-of-Sale (POS) systems, and HarKhil Agro regional model hubs.
+                properties (including <code>agro.harkhil.com</code>), the HarKhil Krishi platform, and diagnostic
+                advisory services.
               </p>
               <p>
                 <strong>HarKhil Agro</strong> operates as an agricultural technology and rural systems division of
@@ -75,18 +75,17 @@ export const PrivacyPolicy: React.FC = () => {
                   associated geographic test coordinates.
                 </li>
                 <li>
-                  <strong>Farmer &amp; Partner Profile Records:</strong> Full name, telephone number, village, taluka,
-                  district, language preference, and land holding size provided voluntarily during advisory consultations
-                  or retail purchases.
+                  <strong>Farmer &amp; Partner Profile Records:</strong> Full name, organizational affiliation,
+                  telephone number, email address, and language preference provided voluntarily during inquiries or
+                  field research consultations.
                 </li>
                 <li>
-                  <strong>Commercial Transaction Records:</strong> Invoicing history, seed/fertilizer purchases,
-                  prescriptions dispensed, digital khata credit ledger balances, and payment gateway transaction
-                  identifiers. We do not store raw UPI PINs or debit/credit card CVV codes.
+                  <strong>Inquiry &amp; Collaboration Records:</strong> Communication correspondence, research proposals,
+                  and feedback submitted through official contact forms or email channels.
                 </li>
                 <li>
                   <strong>System Telemetry &amp; Access Logs:</strong> IP address, device operating system version,
-                  browser user-agent, and error crash logs used to ensure server reliability and system security.
+                  browser user-agent, and error crash logs used to maintain web reliability and defense against denial-of-service.
                 </li>
               </ul>
             </div>
@@ -105,21 +104,21 @@ export const PrivacyPolicy: React.FC = () => {
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-warm-100/70 border border-warm-200">
-                  <h4 className="font-bold text-forest-900 text-xs uppercase tracking-wide">Ledger Reconciliation</h4>
+                  <h4 className="font-bold text-forest-900 text-xs uppercase tracking-wide">Technical Collaboration</h4>
                   <p className="text-xs text-warm-700 mt-1">
-                    Maintaining auditable digital Khata accounts and issuing verifiable retail purchase receipts.
+                    Evaluating joint research trials, cooperative integrations, and extension partnerships.
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-warm-100/70 border border-warm-200">
-                  <h4 className="font-bold text-forest-900 text-xs uppercase tracking-wide">Supply Chain Quality</h4>
+                  <h4 className="font-bold text-forest-900 text-xs uppercase tracking-wide">Applied Research</h4>
                   <p className="text-xs text-warm-700 mt-1">
-                    Verifying certified input authenticity and tracking batch recall notices if required.
+                    Calibrating multi-parameter soil models and bio-nutrient compatibility algorithms.
                   </p>
                 </div>
                 <div className="p-4 rounded-lg bg-warm-100/70 border border-warm-200">
-                  <h4 className="font-bold text-forest-900 text-xs uppercase tracking-wide">Regulatory Compliance</h4>
+                  <h4 className="font-bold text-forest-900 text-xs uppercase tracking-wide">System Security</h4>
                   <p className="text-xs text-warm-700 mt-1">
-                    Complying with statutory agricultural retail record-keeping and taxation laws of India.
+                    Defending digital properties against malicious traffic and maintaining web availability.
                   </p>
                 </div>
               </div>
@@ -131,13 +130,13 @@ export const PrivacyPolicy: React.FC = () => {
                 4. Data Protection &amp; Technical Safeguards
               </h2>
               <p>
-                HarKhil Agro enforces industry-standard technical safeguards across our cloud and edge systems:
+                HarKhil Agro applies rigorous technical standards to safeguard information:
               </p>
               <ul className="list-disc pl-5 space-y-1.5 text-warm-700">
-                <li>All network communications are encrypted in transit via modern TLS 1.3 / HTTPS.</li>
-                <li>Database records and digital ledgers are protected using AES-256 encryption at rest.</li>
-                <li>Strict role-based access control (RBAC) restricts customer data to authorized regional personnel.</li>
-                <li>Routine vulnerability auditing and dependency reviews ensure zero unpatched vulnerabilities.</li>
+                <li>Web interactions on our hosted domain are encrypted in transit via modern TLS 1.3 / HTTPS.</li>
+                <li>Backend data stores in development are architected to enforce AES-256 cryptographic standards at rest.</li>
+                <li>Internal access to partner inquiries and diagnostic datasets is restricted via role-based access control (RBAC).</li>
+                <li>Routine dependency auditing and code reviews ensure zero unpatched security vulnerabilities.</li>
               </ul>
             </div>
 
@@ -154,7 +153,7 @@ export const PrivacyPolicy: React.FC = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-nature-600 shrink-0" />
-                  <span>Rectify inaccurate land records, phone numbers, or khata balances without delay.</span>
+                  <span>Rectify inaccurate land records, phone numbers, or profile information without delay.</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-nature-600 shrink-0" />

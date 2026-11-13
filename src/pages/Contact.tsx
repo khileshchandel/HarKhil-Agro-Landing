@@ -275,7 +275,7 @@ export const Contact: React.FC = () => {
                         className="w-full px-4 py-2.5 rounded-lg border border-warm-300 text-sm focus:outline-none focus:ring-2 focus:ring-nature-500 bg-warm-50/50"
                       >
                         <option value="enterprise">Enterprise Solutions &amp; Platform Licensing</option>
-                        <option value="farmer-partnership">Retail Hub Deployment (Krishi Kendra Model)</option>
+                        <option value="farmer-partnership">Agricultural Cooperative &amp; Extension Partnership</option>
                         <option value="technology-synergy">Academic &amp; Field Agronomy Research</option>
                         <option value="press-media">Institutional &amp; Media Inquiries</option>
                         <option value="general">General Agronomic Query</option>
@@ -321,10 +321,10 @@ export const Contact: React.FC = () => {
                   <div className="flex items-start gap-4">
                     <MapPin className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-bold text-white text-base">Regional Operating Center</h4>
+                      <h4 className="font-bold text-white text-base">Corporate Operations</h4>
                       <p className="mt-1 leading-relaxed">
-                        HarKhil Agro Regional Center &amp; Model Hub<br />
-                        Central India Agricultural Zone, India
+                        HarKhil Agro Division (HarKhil Enterprise)<br />
+                        Central Operations, India
                       </p>
                     </div>
                   </div>
@@ -342,11 +342,10 @@ export const Contact: React.FC = () => {
                   <div className="flex items-start gap-4">
                     <Clock className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" />
                     <div>
-                      <h4 className="font-bold text-white text-base">Business &amp; Hub Hours</h4>
+                      <h4 className="font-bold text-white text-base">Corporate Hours</h4>
                       <p className="mt-1 leading-relaxed">
-                        Shop &amp; Retail Operations: <strong>7:00 AM – 8:30 PM IST</strong><br />
-                        Input Delivery Hours: <strong>10:00 AM – 4:00 PM IST</strong><br />
-                        Corporate Administrative Desk: Mon – Sat, 9:00 AM – 6:00 PM IST
+                        Administrative Desk: <strong>Mon – Sat, 9:00 AM – 6:00 PM IST</strong><br />
+                        Inquiry Response Window: Within 24–48 business hours
                       </p>
                     </div>
                   </div>
@@ -371,12 +370,12 @@ export const Contact: React.FC = () => {
               {/* Notice Card */}
               <div className="p-6 rounded-2xl bg-white border border-warm-200 text-xs text-warm-700 leading-relaxed space-y-2">
                 <span className="font-bold uppercase tracking-wider text-forest-900 block">
-                  Notice to Input Manufacturers &amp; Suppliers
+                  Agronomic Integrity Notice
                 </span>
                 <p>
-                  HarKhil Agro enforces zero tolerance for counterfeit or unregistered chemical and bio-inputs. All
-                  product suppliers seeking to distribute through partner retail centers must submit valid CIB&amp;RC
-                  certifications and manufacturing batch records for audit.
+                  HarKhil Agro adheres to strict scientific standards. All agronomic models, diagnostic protocols,
+                  and collaborative research trials are conducted under transparent, verified parameters aligned with
+                  established botanical and soil science methodologies.
                 </p>
               </div>
             </div>

@@ -148,10 +148,10 @@ export const Home: React.FC = () => {
                 <div className="w-12 h-12 rounded-xl bg-forest-900 text-nature-300 flex items-center justify-center mb-6">
                   <Cpu className="w-6 h-6 text-gold-400" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-forest-900 mb-2">Rural Digital Infrastructure</h3>
+                <h3 className="font-serif text-xl font-bold text-forest-900 mb-2">Rural Agritech Infrastructure</h3>
                 <p className="text-sm text-warm-800 leading-relaxed">
-                  Lightweight, resilient enterprise applications for agricultural retailers, digital khata accounting,
-                  and field personnel operating in low-bandwidth regions.
+                  Resilient digital applications engineered for field agronomists, regional extension teams,
+                  and rural agricultural cooperatives operating in low-bandwidth regions.
                 </p>
               </div>
               <div className="mt-6 pt-4 border-t border-warm-200/60">
@@ -228,29 +228,29 @@ export const Home: React.FC = () => {
                   <span className="text-xs font-mono text-warm-400">AG-SOL-02</span>
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-forest-900 mb-3">
-                  Retail Krishi Hub System
+                  Dynamic Phenology &amp; Advisory
                 </h3>
                 <p className="text-sm text-warm-800 leading-relaxed mb-6">
-                  Integrated retail POS, digital khata ledger, and inventory management tailored specifically for
-                  agricultural input retailers and rural distributors.
+                  Stage-gated crop protection advisories, weather resilience modeling, and preventative pest threshold
+                  alerts tailored to regional cropping cycles.
                 </p>
                 <ul className="space-y-2.5 text-xs text-warm-800">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-nature-600 shrink-0" />
-                    <span>Real-time stock tracking for seeds, bio-fertilizers</span>
+                    <span>Phenological growth stage timeline tracking</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-nature-600 shrink-0" />
-                    <span>Multi-UPI &amp; transparent ledger sync</span>
+                    <span>Integrated Pest Management (IPM) guidance</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-nature-600 shrink-0" />
-                    <span>Offline-first resilience for rural connectivity</span>
+                    <span>Extreme weather and optimal spray timing alerts</span>
                   </li>
                 </ul>
               </div>
               <div className="mt-8 pt-6 border-t border-warm-200">
-                <Button to="/solutions#retail-krishi" variant="ghost" size="sm" className="w-full justify-between px-0">
+                <Button to="/solutions#climate-advisory" variant="ghost" size="sm" className="w-full justify-between px-0">
                   <span>Learn more</span>
                   <ArrowRight className="w-4 h-4 text-nature-600" />
                 </Button>

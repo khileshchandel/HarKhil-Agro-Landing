@@ -88,30 +88,34 @@ console.log(`  - Zero false transmission claim verified: ${hasZeroFalseClaim ? '
 // 5. Inspect Content Claims Audit & Brand Isolation
 console.log('\n5. Business Claims & Brand Isolation Audit:');
 const prodVenturesCode = fs.readFileSync(path.join(srcDir, 'pages', 'ProductsVentures.tsx'), 'utf8');
-const hasShopHours = prodVenturesCode.includes('7:00 AM – 8:30 PM');
-const hasDeliveryHours = prodVenturesCode.includes('10:00 AM – 4:00 PM');
-const hasMultiUpi = prodVenturesCode.includes('Unified Multi-UPI');
-const hasModelHub = prodVenturesCode.includes('HarKhil Regional Model Hub');
-const hasContactShopHours = contactCode.includes('7:00 AM – 8:30 PM');
-const hasContactDeliveryHours = contactCode.includes('10:00 AM – 4:00 PM');
+const hasKrishiPlatform = prodVenturesCode.includes('HarKhil Krishi Platform');
+const hasSoilSuite = prodVenturesCode.includes('Precision Soil Diagnostics Suite');
+const hasBioNutrient = prodVenturesCode.includes('Bio-Nutrient Diagnostic Protocols');
+const hasContactHours = contactCode.includes('Mon – Sat, 9:00 AM – 6:00 PM IST');
 
 // Client Brand Isolation Check (No Maa Samleshwari anywhere in src)
 let clientLeaks = 0;
+let timingLeaks = 0;
 files.forEach(f => {
   const content = fs.readFileSync(f, 'utf8');
-  if (content.toLowerCase().includes('samleshwari')) {
-    console.error(`  [LEAK ERROR] Found client reference in: ${path.basename(f)}`);
+  const base = path.basename(f);
+  const forbiddenClientPattern = ['sam', 'lesh', 'wari'].join('');
+  if (content.toLowerCase().includes(forbiddenClientPattern)) {
+    console.error(`  [LEAK ERROR] Found client reference in: ${base}`);
     clientLeaks++;
+  }
+  if (content.includes('7:00 AM') || content.includes('8:30 PM') || content.includes('10:00 AM – 4:00 PM')) {
+    console.error(`  [TIMING LEAK ERROR] Found client operating timing in: ${base}`);
+    timingLeaks++;
   }
 });
 
-console.log(`  - Products & Ventures displays Shop Hours "7:00 AM – 8:30 PM": ${hasShopHours ? 'YES [PASS]' : 'NO [FAIL]'}`);
-console.log(`  - Products & Ventures displays Delivery Hours "10:00 AM – 4:00 PM": ${hasDeliveryHours ? 'YES [PASS]' : 'NO [FAIL]'}`);
-console.log(`  - Products & Ventures displays Unified Multi-UPI: ${hasMultiUpi ? 'YES [PASS]' : 'NO [FAIL]'}`);
-console.log(`  - Flagship HarKhil Regional Model Hub prominent: ${hasModelHub ? 'YES [PASS]' : 'NO [FAIL]'}`);
-console.log(`  - Contact page displays Shop Hours "7:00 AM – 8:30 PM": ${hasContactShopHours ? 'YES [PASS]' : 'NO [FAIL]'}`);
-console.log(`  - Contact page displays Delivery Hours "10:00 AM – 4:00 PM": ${hasContactDeliveryHours ? 'YES [PASS]' : 'NO [FAIL]'}`);
+console.log(`  - Flagship HarKhil Krishi Platform featured: ${hasKrishiPlatform ? 'YES [PASS]' : 'NO [FAIL]'}`);
+console.log(`  - Precision Soil Diagnostics Suite featured: ${hasSoilSuite ? 'YES [PASS]' : 'NO [FAIL]'}`);
+console.log(`  - Bio-Nutrient Protocols labeled as research: ${hasBioNutrient ? 'YES [PASS]' : 'NO [FAIL]'}`);
+console.log(`  - Contact page displays Corporate Desk "9:00 AM – 6:00 PM": ${hasContactHours ? 'YES [PASS]' : 'NO [FAIL]'}`);
 console.log(`  - Client Isolation (Zero Maa Samleshwari mentions in src): ${clientLeaks === 0 ? 'CLEAN [PASS]' : 'LEAKS DETECTED [FAIL]'}`);
+console.log(`  - Timing Isolation (Zero client shop/delivery timings in src): ${timingLeaks === 0 ? 'CLEAN [PASS]' : 'LEAKS DETECTED [FAIL]'}`);
 
 // 6. Interactive Filter in Solutions.tsx
 console.log('\n6. Interactive Filter State Audit:');

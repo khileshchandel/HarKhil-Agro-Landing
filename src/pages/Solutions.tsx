@@ -42,21 +42,21 @@ export const Solutions: React.FC = () => {
       impact: 'Minimizes crop loss from untimely disease outbreaks and prevents ineffective pesticide spraying.',
     },
     {
-      id: 'retail-krishi',
-      category: 'Enterprise Digital Systems',
+      id: 'extension-architecture',
+      category: 'Enterprise Digital Agronomy',
       status: 'pilot' as const,
-      title: 'Centralized Krishi Hub & Digital Khata Infrastructure',
+      title: 'Enterprise Agronomic Data & Extension Architecture',
       description:
-        'A field-hardened operating system designed specifically for rural agricultural input retailers, cooperatives, and distribution centers. Manages seed/fertilizer inventory, customer credit (Khata), and multi-mode payment processing.',
-      targetAudience: 'Agri-Input Retailers, Krishi Kendras, Rural Distribution Centers, Cooperatives',
+        'A modular digital platform connecting agronomists, field extension agents, and agricultural cooperatives with structured crop nutrition guidelines, regional pest advisories, and centralized soil diagnostic datasets.',
+      targetAudience: 'Agricultural Cooperatives, Extension Officers, Agronomists, Farming Collectives',
       features: [
-        'Batch and expiry tracking for certified hybrid seeds, chemical inputs, and bio-nutrients',
-        'Digital Khata ledger replacing manual pen-and-paper ledgers with automated SMS receipts and payment reminders',
-        'Unified payment hub supporting Multi-UPI, QR codes, split tenders, and recorded customer credit',
-        'Offline-capable local synchronization ensuring zero downtime during rural network outages',
-        'Auditable GST invoicing compliant with Indian agricultural retail regulations',
+        'Centralized digital repository for micro-regional soil testing records and crop history',
+        'Field extension interface for logging verified agronomic observations and disease outbreaks',
+        'Standardized data integration schemas for cooperative management systems',
+        'Offline-capable local data capture ensuring operational continuity in remote field areas',
+        'Automated bilingual agronomic summary generation for participating farm groups',
       ],
-      impact: 'Eliminates ledger reconciliation disputes, tracks credit aging, and guarantees inventory transparency.',
+      impact: 'Eliminates data silos between field extension workers, laboratories, and grower organizations.',
     },
     {
       id: 'supply-traceability',
@@ -84,7 +84,7 @@ export const Solutions: React.FC = () => {
     <>
       <SEO
         title="Solutions & Capabilities | Soil Diagnostics, Advisory & Rural Systems"
-        description="Explore HarKhil Agro's modular solutions: precision soil diagnostics, crop phenology advisory, rural retail POS khata systems, and supply chain provenance."
+        description="Explore HarKhil Agro's modular solutions: precision soil diagnostics, crop phenology advisory, enterprise agronomic data architectures, and supply chain provenance."
         canonical="https://agro.harkhil.com/solutions"
       />
 

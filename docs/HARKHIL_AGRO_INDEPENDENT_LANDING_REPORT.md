@@ -81,7 +81,7 @@ D:\HarKhilProducts\HarKhil-Agro-Landing\
 │   │   ├── InnovationResearch.tsx      # Page 5: Soil microbiology, R&D & science charter
 │   │   ├── PrivacyPolicy.tsx           # Page 7: Comprehensive data governance policy
 │   │   ├── ProductsVentures.tsx        # Page 4: HarKhil Krishi & regional model hub
-│   │   └── Solutions.tsx               # Page 3: Soil diagnostics, advisory & POS system
+│   │   └── Solutions.tsx               # Page 3: Soil diagnostics, advisory & extension architecture
 │   │
 │   ├── types/                          # TypeScript interface contracts
 │   │   └── index.ts
@@ -112,8 +112,8 @@ D:\HarKhilProducts\HarKhil-Agro-Landing\
   1. *Soil Health & Diagnostics* (NPK, micronutrients, cation-exchange capacity)
   2. *Climate-Smart Agronomy* (Dynamic phenology modeling and spray timing)
   3. *Transparent Supply Networks* (Verifiable inputs and elimination of counterfeits)
-  4. *Rural Digital Infrastructure* (Offline-first POS and digital khata accounting)
-- **Live Capability Spotlights:** Filterable showcase cards for Soil Intelligence (Active), Retail Krishi Hub (Pilot), and Traceability (Roadmap).
+  4. *Rural Agritech Infrastructure* (Resilient applications for agronomists, field teams, and agricultural cooperatives)
+- **Live Capability Spotlights:** Filterable showcase cards for Soil Intelligence (Active), Phenology Advisory (Pilot), and Traceability (Roadmap).
 - **Corporate Lineage Section:** Deep-forest overview detailing the HarKhil parentage and commitment to grassroots empowerment.
 
 ### Page 2 — About HarKhil Agro (`/about`)
@@ -133,19 +133,18 @@ D:\HarKhilProducts\HarKhil-Agro-Landing\
 - **Comprehensive Solution Profiles:**
   1. *Precision Soil Health & Micro-Nutrient Intelligence* (14 parameters: N, P, K, pH, EC, Zn, Fe, Cu, Mn, B, Ca, Mg, S, Organic Carbon; up to 20% reduction in unnecessary chemical spend).
   2. *Dynamic Phenology & Climate-Adaptive Crop Advisory* (Stage-gated alerts for paddy, wheat, pulses, vegetables; Integrated Pest Management protocols).
-  3. *Centralized Krishi Hub & Digital Khata Infrastructure* (Batch inventory tracking, multi-UPI payment hub, customer khata credit management, offline resilience).
+  3. *Enterprise Agronomic Data & Extension Architecture* (Centralized soil testing repository, disease observation logging, cooperative data schemas).
   4. *Farm-to-Market Harvest Traceability & Provenance* (QR batch tagging, residue-free compliance verification, fair-value premium reconciliation).
 
 ### Page 4 — Products & Ventures (`/products-ventures`)
-- **Flagship Facility Spotlight: HarKhil Regional Model Hub:**
-  - Regional input hub in Chhattisgarh, India.
-  - Official operating shop hours: **7:00 AM – 8:30 PM** (7 days a week).
-  - Scheduled input delivery hours: **10:00 AM – 4:00 PM**.
-  - Deployed systems: Retail POS, Multi-UPI payment hub, customer Khata, bilingual advisory.
+- **Proprietary Technology Spotlight: HarKhil Krishi Platform:**
+  - Core digital platform connecting soil diagnostics, phenological models, and localized advisory.
+  - 14-parameter soil profiling, micro-climate adaptive intervention guidance, and modular bilingual architecture.
 - **Ecosystem Ventures:**
-  - *HarKhil Krishi Platform* (Active Operational Core)
-  - *Bio-Nutrient Diagnostic Protocols* (Active Pilot / Microbiology Study)
-  - *Rural Last-Mile Agro-Logistics* (Planned Infrastructure)
+  - *HarKhil Krishi Platform* (Core Digital Platform — Active Pilot)
+  - *Precision Soil Diagnostics Suite* (Diagnostic Chemistry — Field Tested)
+  - *Bio-Nutrient Diagnostic Protocols* (Applied Soil Microbiology Research)
+  - *Agricultural Commerce & Value Chain Architecture* (Conceptual Roadmap)
 
 ### Page 5 — Innovation & Research (`/innovation-research`)
 - **Scientific Integrity Charter:** Public pledge to empirical reproducibility, open datasets, and peer-reviewed agronomic benchmarks.
@@ -171,7 +170,7 @@ D:\HarKhilProducts\HarKhil-Agro-Landing\
 - **Executive Farmer Privacy Pledge:** Clear statement that agricultural data is never sold to commodity speculators or commercial advertising networks.
 - **Data Categories Processed:** Soil diagnostic chemistry, farmer contact details, retail billing records, and technical system telemetry.
 - **Lawful Grounds & Data Protection:** TLS 1.3 in-transit encryption, AES-256 at-rest database storage, strict role-based access control (RBAC).
-- **Farmer Rights:** Full right to inspect records, correct khata ledgers, and request data erasure.
+- **Farmer Rights:** Full right to inspect records, correct profile data, and request data erasure.
 
 ---
 
@@ -253,7 +252,7 @@ When authorized to deploy `agro.harkhil.com`:
 - [x] Vite + React 18 + TypeScript + Tailwind CSS configured with custom HarKhil palette.
 - [x] All 7 requested pages designed and implemented with deep, non-fabricating substance.
 - [x] Proper distinction between active, pilot, and planned initiatives.
-- [x] Official shop hours (7:00 AM – 8:30 PM) and delivery hours (10:00 AM – 4:00 PM) documented.
+- [x] Complete brand and client isolation verified (Zero client data or operating hours).
 - [x] Responsive layout with mobile drawer and sticky navbar.
 - [x] Brand favicon, SEO meta tags, OpenGraph, Schema.org JSON-LD, robots.txt, and sitemap.xml.
 - [x] 100% clean production build and zero TypeScript errors.

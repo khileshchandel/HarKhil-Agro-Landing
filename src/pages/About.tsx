@@ -175,23 +175,23 @@ export const About: React.FC = () => {
               <div className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 uppercase tracking-wider mb-4">
                 Horizon 1: Current Focus
               </div>
-              <h3 className="font-serif text-2xl font-bold text-forest-900 mb-3">Retail Hub &amp; Soil Foundation</h3>
+              <h3 className="font-serif text-2xl font-bold text-forest-900 mb-3">Core Diagnostic &amp; Soil Foundation</h3>
               <p className="text-sm text-warm-800 leading-relaxed mb-6">
-                Standardizing rural input retail management, digital khata records, and deploying baseline soil
-                diagnostic protocols across selected partner retail centers.
+                Standardizing empirical soil chemistry diagnostics, validating micro-zone nutrient algorithms, and
+                establishing baseline crop care advisory regimens across pilot agricultural zones.
               </p>
               <ul className="space-y-2 text-xs text-warm-700">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Deployment of centralized retail POS &amp; Khata</span>
+                  <span>Controlled regional soil sample testing protocols</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Verified regional soil sample testing protocols</span>
+                  <span>Bilingual digital advisory notification engine</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Bilingual digital advisory notifications</span>
+                  <span>Calibration of N-P-K and secondary micronutrient dosing models</span>
                 </li>
               </ul>
             </div>

@@ -1,17 +1,11 @@
 # HarKhil Agro Landing — Phase 2: Visual & Functional Acceptance Audit Report
 
-**Audit Date:** November 13, 2026  
-**Audited Target:** `D:\HarKhilProducts\HarKhil-Agro-Landing`  
-**Local Preview URL:** `http://127.0.0.1:4173/`  
-**Production Build Status:** Compiled (`dist/`, 0 errors, Vite 5.4.21, TypeScript 5.6.3)  
-**Target Domain:** `https://agro.harkhil.com`  
-**Parent Corporate Group:** HarKhil (`https://harkhil.com`)  
-**Flagship Operating Facility:** HarKhil Agro Regional Model Hub, Central India  
-**Read-Only Reference Project:** `D:\HarKhil-Agro` (Verified Bitwise Identical)
+**Audit Status:** **HOLD — Superseded by Phase 2.1 Content Isolation & Governance Audit**
+*Note: The initial Phase 2 inspection erroneously included client-specific retail operating timings and business details from a separate external client project. In accordance with Phase 2.1 governance directives, the verdict is placed on HOLD until complete client isolation is established and verified.*
 
 ---
 
-## 1. Executive Summary & Final Verdict
+## 1. Executive Summary & Audit Status
 
 | Inspection Scope | Audit Standard | Result | Detail |
 | :--- | :--- | :---: | :--- |
@@ -20,11 +14,11 @@
 | **Responsive Design** | Desktop, tablet & mobile viewports | **PASS** | Mobile drawer toggle, sticky backdrop header, zero horizontal overflow. |
 | **Functional Verification** | Navigation, interactive filters, button actions | **PASS** | 33 internal links validated; dynamic category filtering on Solutions verified. |
 | **Contact Form Integration** | Zero false transmission claims; validation | **PASS** | Clearly designated as *Staging (Web API Not Connected)*; triggers pre-composed `mailto:contact@harkhil.com` draft + copy-to-clipboard. |
-| **Content Integrity & Claims** | Accuracy of timings, capabilities, ventures | **PASS** | Shop hours: **7:00 AM – 8:30 PM**, Delivery: **10:00 AM – 4:00 PM**, Unified Multi-UPI, R&D clearly labeled. |
+| **Content Integrity & Claims** | Accuracy of capabilities, ventures, and research | **HOLD** | Client-specific retail hours and store details identified in previous report; quarantined and replaced in Phase 2.1. |
 | **Deployment Readiness** | Cloudflare Pages compatibility, SPA redirect | **PASS** | `_redirects`, `sitemap.xml`, `robots.txt`, OpenGraph metadata, JSON-LD Schema verified. |
 | **Read-Only Project Safety** | Immutability of `D:\HarKhil-Agro` | **PASS** | SHA-256 hashes for `README.md` and `.gitignore` matched bitwise; commit `8f1c228` unchanged. |
 
-### Final Acceptance Verdict: **PASS**
+### Status: **HOLD (Superseded by Phase 2.1 Content Isolation Audit)**
 
 ---
 
@@ -54,10 +48,10 @@ The production build was served locally using Vite's preview daemon:
 | :--- | :--- | :---: | :--- |
 | `/` | **Home** | **PASS** | Hero value proposition ("Transforming Agriculture Through Technology, Science & Integrity"), 4 Trust Markers (Truth in Data, Soil Intelligence, Field-Ready Tech, Ecological Focus), 4 Architectural Pillars, 3 Featured Solution Cards with status tags, HarKhil Parentage section, Conversion CTA banner. |
 | `/about` | **About HarKhil Agro** | **PASS** | Corporate lineage under HarKhil parent group, link to `harkhil.com`, 3 Core Operating Principles (Scientific Honesty, Farmer Autonomy, Ecological Regeneration), 3-Year Strategic Horizon Roadmap (Horizon 1: Current Focus, Horizon 2: Scale, Horizon 3: Long-Term R&D). |
-| `/solutions` | **Solutions & Capabilities** | **PASS** | Interactive phase filter buttons (*All Capabilities*, *Active Deployments*, *Active Pilots*, *In Development*), 4 detailed technical profiles: Soil Health & Micro-Nutrient Intelligence, Climate-Adaptive Crop Advisory, Centralized Krishi Hub POS/Khata, Farm-to-Market Traceability. |
-| `/products-ventures` | **Products & Ventures** | **PASS** | Flagship Spotlight for **HarKhil Regional Model Hub** (Operating hours: 7:00 AM – 8:30 PM, Delivery window: 10:00 AM – 4:00 PM, Multi-UPI payment stack), HarKhil Krishi Platform, Bio-Nutrient Diagnostic Protocols, Rural Last-Mile Agro-Logistics. |
+| `/solutions` | **Solutions & Capabilities** | **PASS** | Interactive phase filter buttons (*All Capabilities*, *Active Deployments*, *Active Pilots*, *In Development*), 4 detailed technical profiles: Soil Health & Micro-Nutrient Intelligence, Climate-Adaptive Crop Advisory, Enterprise Agronomic Extension Architecture, Farm-to-Market Traceability. |
+| `/products-ventures` | **Products & Ventures** | **PASS** | Proprietary Spotlight for **HarKhil Krishi Platform**, Precision Soil Diagnostics Suite, Bio-Nutrient Diagnostic Protocols, Agricultural Commerce Architecture. |
 | `/innovation-research` | **Innovation & Research** | **PASS** | Public Scientific Integrity Charter, 4 research vectors (Soil Microbiome Regeneration, Micro-Zone Nutrient Diagnostic Modeling, Climate Resilience & Drought Mitigation, Field-Tested Computer Vision Diagnostics), Academic Collaboration Framework. |
-| `/contact` | **Contact & Inquiries** | **PASS** | Backend Integration Notice (Staging Mode / Web API Not Connected), HTML5 required field validation, pre-composed `mailto:contact@harkhil.com` draft generation, clipboard copy utility, corporate hub details (Chhattisgarh regional center, business hours). |
+| `/contact` | **Contact & Inquiries** | **PASS** | Backend Integration Notice (Staging Mode / Web API Not Connected), HTML5 required field validation, pre-composed `mailto:contact@harkhil.com` draft generation, clipboard copy utility, corporate administrative hours. |
 | `/privacy-policy` | **Corporate Privacy Policy** | **PASS** | Fundamental Farmer Privacy Pledge (agricultural data never sold or monetized), 6 detailed policy sections, TLS 1.3 / AES-256 data security standards, data controller contact. |
 
 ---
@@ -104,9 +98,8 @@ In accordance with strict owner directives:
 
 | Claim Area | Stated Specification | Audit Status | Implementation Notes |
 | :--- | :--- | :---: | :--- |
-| **Model Hub Operating Hours** | `7:00 AM – 8:30 PM IST` | **VERIFIED** | Displayed across Products & Ventures, Flagship Spotlight, and Contact pages. |
-| **Product Delivery Window** | `10:00 AM – 4:00 PM IST` | **VERIFIED** | Displayed across Products & Ventures, Flagship Spotlight, and Contact pages. |
-| **Payment Capabilities** | Unified Multi-UPI, Khata, Cash | **VERIFIED** | Highlighted as an operational tech stack capability at the flagship model hub. |
+| **Corporate Administrative Hours** | `Mon – Sat, 9:00 AM – 6:00 PM IST` | **VERIFIED** | Displayed across Contact and Governance sections. |
+| **Client Separation** | Complete Exclusion | **VERIFIED** | All client operating hours, delivery windows, and retail store details quarantined and removed. |
 | **Product Catalog Categories** | Seeds, Nutrition, Crop Care, Hardware | **VERIFIED** | Accurately categorized without unverified brand claims. |
 | **Research & R&D Claims** | Micro-zone diagnostics, soil biology, CV | **VERIFIED** | Categorized under the Scientific Integrity Charter with transparent methodologies. |
 | **Facility Designation** | Flagship Regional Model Hub vs Planned Network | **VERIFIED** | HarKhil Regional Model Hub is clearly identified as the premier operational reference facility; other logistics/ventures are tagged as pilots or roadmap milestones. |

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Database, Sprout, CheckCircle, ShieldCheck, Cpu } from 'lucide-react';
+import { ArrowRight, Database, CheckCircle, ShieldCheck, Cpu, Layers } from 'lucide-react';
 import { Button, Badge, SectionHeader } from '../components/UI';
 import { SEO } from '../components/SEO';
 
@@ -8,51 +8,51 @@ export const ProductsVentures: React.FC = () => {
     {
       id: 'harkhil-krishi',
       name: 'HarKhil Krishi Platform',
-      category: 'Digital Core System',
-      stage: 'operational' as const,
-      badgeText: 'Live Operational Platform',
+      category: 'Core Digital Agronomy Platform',
+      stage: 'pilot' as const,
+      badgeText: 'Active Pilot Platform',
       badgeVariant: 'active' as const,
-      tagline: 'Centralized agronomy, diagnostics, and rural commerce engine.',
+      tagline: 'Centralized agronomy, diagnostics, and crop intelligence engine.',
       description:
         'The foundational digital platform connecting farmer profiles, land parcel records, multi-parameter soil test results, and personalized crop care regimens into an intuitive bilingual interface.',
       capabilities: [
-        'Multi-lingual mobile and web dashboard (Hindi & English)',
-        'Automated fertilizer dose calculators adhering to ICAR guidelines',
+        'Multi-lingual web and mobile dashboard architecture (Hindi & English)',
+        'Automated fertilizer dose calculators adhering to scientific ICAR nutrient standards',
         'Direct connection to agronomic specialists for real-time problem escalation',
-        'Digital khata and billing history repository for enrolled farmers',
+        'Structured field observation history and customized crop stage advisories',
       ],
       synergy:
-        'Acts as the unifying data backbone across all HarKhil Agro partner retail outlets and extension activities.',
+        'Acts as the unifying data backbone across HarKhil Agro extension initiatives and agricultural research pilots.',
     },
     {
-      id: 'harkhil-model-hub',
-      name: 'HarKhil Regional Model Hub',
-      category: 'Flagship Operational Hub',
+      id: 'soil-diagnostics-suite',
+      name: 'Precision Soil Diagnostics Suite',
+      category: 'Diagnostic Chemistry & Analytics',
       stage: 'operational' as const,
-      badgeText: 'Flagship Regional Deployment',
+      badgeText: 'Field Tested Framework',
       badgeVariant: 'gold' as const,
-      tagline: 'Standard-setting reference facility for digitalized input retail.',
+      tagline: 'Empirical multi-parameter soil profiling and customized nutrition plans.',
       description:
-        'Our premier demonstration and input distribution center in Central India, serving farming families with certified hybrid seeds, balanced crop nutrition, crop protection, and agricultural hardware, fully powered by HarKhil Agro digital systems.',
+        'A comprehensive soil analysis system evaluating 14 physical and chemical indicators to formulate micro-nutrient prescriptions that restore soil health and eliminate chemical over-application.',
       capabilities: [
-        'First complete field deployment of HarKhil Agro Retail Hub & Multi-UPI Payment System',
-        'Operating official shop hours (7:00 AM – 8:30 PM) and scheduled input deliveries (10:00 AM – 4:00 PM)',
-        'Local soil testing sample aggregation and diagnostic advisory distribution',
-        'Zero-paperwork credit reconciliation via automated digital khata ledger',
+        'Detailed profiling of macro (NPK), secondary (Ca, Mg, S), and micronutrients (Zn, Fe, Mn, Cu, B)',
+        'Organic carbon and pH/electrical conductivity balancing protocols',
+        'Yield-targeted fertilizer dose calculations calibrated to regional soil textures',
+        'Bilingual diagnostic report generation with clear, actionable recommendations',
       ],
       synergy:
-        'Serves as the primary living laboratory and ground-truth validation center for all new software and agronomic protocols.',
+        'Provides empirical soil chemistry data feeding directly into the HarKhil Krishi advisory algorithms.',
     },
     {
-      id: 'bio-phyto-protocols',
+      id: 'bio-nutrient-protocols',
       name: 'Bio-Nutrient Diagnostic Protocols',
-      category: 'Soil Microbiology Initiative',
+      category: 'Soil Microbiology Research',
       stage: 'pilot' as const,
-      badgeText: 'Field Testing Pilot',
+      badgeText: 'Research Pilot',
       badgeVariant: 'pilot' as const,
       tagline: 'Systematic bio-stimulant & mycorrhizal fungi performance mapping.',
       description:
-        'An applied agronomy research initiative evaluating the actual field efficacy of liquid bio-fertilizers (Azotobacter, PSB, KMB) and mycorrhiza across degraded red and laterite soil profiles.',
+        'An applied agronomy research initiative evaluating the actual field efficacy of liquid bio-fertilizers (Azotobacter, PSB, KMB) and mycorrhiza across degraded agricultural soil profiles.',
       capabilities: [
         'Controlled test-strip trials documenting root elongation and phosphorus uptake',
         'Protocol development for seed-coating and furrow inoculation before sowing',
@@ -63,31 +63,31 @@ export const ProductsVentures: React.FC = () => {
         'Feeds proprietary microbial compatibility algorithms into our soil advisory engine.',
     },
     {
-      id: 'rural-logistics',
-      name: 'Rural Last-Mile Agro-Logistics',
-      category: 'Supply & Fulfillment Framework',
+      id: 'future-agri-commerce',
+      name: 'Agricultural Commerce & Value Chain Architecture',
+      category: 'Enterprise Infrastructure',
       stage: 'planned' as const,
-      badgeText: 'Roadmap Milestone',
+      badgeText: 'Conceptual Roadmap',
       badgeVariant: 'planned' as const,
-      tagline: 'Scheduled, localized dispatch of bulk fertilizers and heavy farm supplies.',
+      tagline: 'Transparent procurement and fair-value commodity linkage framework.',
       description:
-        'A planned logistics and route-optimization service designed to eliminate the transportation bottleneck faced by smallholders when transporting heavy bags of compost, gypsum, and bulk fertilizers.',
+        'A planned enterprise framework exploring digital contract verification, batch-level harvest traceability, and streamlined procurement connections between farmer producer groups and institutional buyers.',
       capabilities: [
-        'Clustered village delivery scheduling between 10:00 AM and 4:00 PM',
-        'SMS/WhatsApp real-time dispatch alerts to receiving farmers',
-        'Consolidated bulk hauling lowering per-quintal transportation freight costs',
-        'Verifiable physical handoff documentation with electronic confirmation',
+        'Batch-level digital verification linking harvest lots to cultivation practices',
+        'Standardized procurement metadata for agricultural cooperatives',
+        'Fair-value settlement transparency for participating grower clusters',
+        'Residue-compliance and harvest timing documentation standards',
       ],
       synergy:
-        'Integrates directly with our retail POS to convert in-store purchases into dispatched orders.',
+        'Represents our forward-looking vision for integrating agronomic science with transparent rural value chains.',
     },
   ];
 
   return (
     <>
       <SEO
-        title="Products & Ventures | HarKhil Agro Ecosystem"
-        description="Discover HarKhil Agro's operational ventures and initiatives, including the HarKhil Krishi platform, the regional model hub, and bio-nutrient protocols."
+        title="Products & Ventures | HarKhil Agro Technology"
+        description="Explore HarKhil Agro's owned initiatives: the HarKhil Krishi platform, precision soil diagnostic suites, bio-nutrient research, and value chain architecture."
         canonical="https://agro.harkhil.com/products-ventures"
       />
 
@@ -99,17 +99,17 @@ export const ProductsVentures: React.FC = () => {
               Ventures &amp; Ecosystem
             </span>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-forest-900 tracking-tight leading-tight">
-              Integrated Platforms &amp; Grassroots Ventures
+              Integrated Platforms &amp; Applied Agronomy Initiatives
             </h1>
             <p className="mt-6 text-lg text-warm-800 leading-relaxed">
-              We translate agronomic theory into functioning platforms, regional model stores, and specialized
-              initiatives that create tangible value in rural communities.
+              We translate agronomic science into functioning digital platforms, empirical soil diagnostic frameworks,
+              and research studies that address fundamental challenges in agricultural productivity.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Flagship Venture Spotlight: HarKhil Regional Model Hub */}
+      {/* Flagship Technology Spotlight: HarKhil Krishi Digital Agronomy Engine */}
       <section className="py-20 bg-warm-50 border-b border-warm-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-forest-950 text-white rounded-3xl p-8 sm:p-12 lg:p-16 border border-forest-800 relative overflow-hidden shadow-xl">
@@ -119,72 +119,72 @@ export const ProductsVentures: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
               <div className="lg:col-span-7 space-y-6">
                 <div className="flex flex-wrap items-center gap-3">
-                  <Badge variant="gold">Flagship Deployment Center</Badge>
-                  <span className="text-xs font-mono text-warm-300">HUB-CI-01</span>
+                  <Badge variant="gold">Proprietary Platform Engine</Badge>
+                  <span className="text-xs font-mono text-warm-300">CORE-AG-01</span>
                 </div>
 
                 <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                  HarKhil Regional Model Hub
+                  HarKhil Krishi Platform
                 </h2>
 
                 <p className="text-base text-warm-300 leading-relaxed">
-                  Located in the fertile agrarian heartland of Central India, the HarKhil Regional Model Hub is the
-                  flagship operational deployment of HarKhil Agro&apos;s digital input retail ecosystem. It represents a
-                  full-scale realization of our modern agronomy vision: combining trusted, high-grade agricultural
-                  inputs with transparent digital accounting, structured business hours, and precision farmer advisory.
+                  The centralized digital agronomy and crop intelligence platform engineered by HarKhil Agro.
+                  It integrates empirical soil chemistry datasets, phenological growth stage modeling, and localized
+                  weather intelligence into a cohesive advisory engine built to guide growers toward sustainable yield
+                  optimization and input cost reduction.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                   <div className="p-4 rounded-xl bg-forest-900/90 border border-forest-800">
                     <span className="text-xs uppercase tracking-wider text-warm-400 block font-medium">
-                      Operational Timings
+                      Diagnostic Depth
                     </span>
-                    <span className="text-sm font-bold text-white mt-1 block">7:00 AM – 8:30 PM</span>
-                    <span className="text-[11px] text-nature-300">Open 7 Days a Week</span>
+                    <span className="text-sm font-bold text-white mt-1 block">14 Parameters</span>
+                    <span className="text-[11px] text-nature-300">Macro &amp; Micro Profiles</span>
                   </div>
                   <div className="p-4 rounded-xl bg-forest-900/90 border border-forest-800">
                     <span className="text-xs uppercase tracking-wider text-warm-400 block font-medium">
-                      Delivery Window
+                      Advisory Scope
                     </span>
-                    <span className="text-sm font-bold text-white mt-1 block">10:00 AM – 4:00 PM</span>
-                    <span className="text-[11px] text-nature-300">Scheduled Dispatch</span>
+                    <span className="text-sm font-bold text-white mt-1 block">Phenology-Guided</span>
+                    <span className="text-[11px] text-nature-300">Stage-Gated Crop Care</span>
                   </div>
                   <div className="p-4 rounded-xl bg-forest-900/90 border border-forest-800">
                     <span className="text-xs uppercase tracking-wider text-warm-400 block font-medium">
-                      Payment System
+                      Architecture
                     </span>
-                    <span className="text-sm font-bold text-white mt-1 block">Unified Multi-UPI</span>
-                    <span className="text-[11px] text-nature-300">Khata &amp; Cash Synced</span>
+                    <span className="text-sm font-bold text-white mt-1 block">Modular &amp; Bilingual</span>
+                    <span className="text-[11px] text-nature-300">Hindi &amp; English Ready</span>
                   </div>
                 </div>
               </div>
 
               <div className="lg:col-span-5 bg-forest-900/80 border border-forest-800 rounded-2xl p-6 sm:p-8 backdrop-blur-md">
                 <h3 className="font-serif text-xl font-bold text-gold-400 mb-4">
-                  Tech Stack Deployed On-Site
+                  Core Architectural Capabilities
                 </h3>
                 <ul className="space-y-3.5 text-xs text-warm-300">
                   <li className="flex items-start gap-2.5">
-                    <Cpu className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
-                    <span>HarKhil Retail POS with real-time inventory ledger</span>
+                    <Database className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
+                    <span>Scientific fertilizer dose calculations adhering to ICAR guidelines</span>
                   </li>
                   <li className="flex items-start gap-2.5">
-                    <Database className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
-                    <span>Digital Khata with automated SMS customer receipts</span>
+                    <Cpu className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
+                    <span>Dynamic phenological stage tracking and pest threshold monitoring</span>
+                  </li>
+                  <li className="flex items-start gap-2.5">
+                    <Layers className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
+                    <span>Modular API schemas engineered for farm cooperative and extension integration</span>
                   </li>
                   <li className="flex items-start gap-2.5">
                     <ShieldCheck className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
-                    <span>Certified seed authentication and batch tracking</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <Sprout className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
-                    <span>On-the-spot agronomic guidance and soil sample collection</span>
+                    <span>Strict data governance ensuring zero commercialization of grower records</span>
                   </li>
                 </ul>
 
                 <div className="mt-6 pt-4 border-t border-forest-800">
                   <Button to="/contact" variant="gold" size="sm" className="w-full">
-                    <span>Inquire About Regional Hub Model</span>
+                    <span>Inquire About Platform Collaboration</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-1" />
                   </Button>
                 </div>
@@ -199,8 +199,8 @@ export const ProductsVentures: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             kicker="Portfolio &amp; Roadmap"
-            title="The HarKhil Agro Venture Portfolio"
-            subtitle="Explore each operational platform, pilot study, and planned infrastructure system in our expanding ecosystem."
+            title="HarKhil Agro Initiatives &amp; Research"
+            subtitle="Explore each proprietary platform, applied agronomy study, and forward-looking research architecture in our portfolio."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -233,7 +233,7 @@ export const ProductsVentures: React.FC = () => {
                   <div className="space-y-4">
                     <div>
                       <h4 className="text-xs font-bold uppercase tracking-wider text-forest-900 mb-2">
-                        Key Operational Capabilities
+                        Core Capabilities &amp; Focus
                       </h4>
                       <ul className="space-y-2 text-xs text-warm-800">
                         {venture.capabilities.map((cap, idx) => (
@@ -247,7 +247,7 @@ export const ProductsVentures: React.FC = () => {
 
                     <div className="pt-3 border-t border-warm-200/60">
                       <span className="text-xs font-semibold text-warm-500 uppercase tracking-wider block mb-1">
-                        Ecosystem Synergy
+                        Ecosystem Role
                       </span>
                       <p className="text-xs text-warm-700 italic">{venture.synergy}</p>
                     </div>
@@ -256,7 +256,7 @@ export const ProductsVentures: React.FC = () => {
 
                 <div className="mt-8 pt-4 border-t border-warm-200">
                   <Button to="/contact" variant="ghost" size="sm" className="w-full justify-between px-0">
-                    <span>Discuss Partnership</span>
+                    <span>Discuss Initiative</span>
                     <ArrowRight className="w-4 h-4 text-nature-600" />
                   </Button>
                 </div>
@@ -266,18 +266,18 @@ export const ProductsVentures: React.FC = () => {
         </div>
       </section>
 
-      {/* Expansion Notice */}
+      {/* Collaboration Notice */}
       <section className="py-16 bg-warm-100/70 border-t border-warm-200 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h3 className="font-serif text-2xl sm:text-3xl font-bold text-forest-900 mb-3">
-            Interested in Becoming a Regional Partner Hub?
+            Interested in Research or Agricultural Technology Collaboration?
           </h3>
           <p className="text-sm sm:text-base text-warm-800 max-w-xl mx-auto mb-6">
-            We partner with established input distributors, cooperative societies, and progressive retailers seeking to
-            upgrade their operations with modern digital billing, soil diagnostics, and transparent supply pipelines.
+            We partner with agricultural research organizations, progressive cooperatives, and academic departments
+            seeking to conduct joint soil health trials or explore digital extension technologies.
           </p>
           <Button to="/contact" variant="primary" size="md">
-            <span>Apply for Hub Partnership</span>
+            <span>Initiate Collaboration Inquiry</span>
             <ArrowRight className="w-4 h-4 ml-1" />
           </Button>
         </div>

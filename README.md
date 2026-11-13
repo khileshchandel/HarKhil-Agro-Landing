@@ -4,7 +4,7 @@ The official, independent corporate landing website for **HarKhil Agro** (a spec
 
 - **Target Domain:** `https://agro.harkhil.com`
 - **Parent Corporate Entity:** HarKhil (`https://harkhil.com`)
-- **Flagship Operating Facility:** HarKhil Agro Regional Model Hub, Central India
+- **Primary Focus:** Agricultural Science, Precision Soil Intelligence & Rural Digital Infrastructure
 
 ---
 
@@ -37,8 +37,8 @@ This project is completely decoupled and independent. It does not share dependen
 | :--- | :--- | :--- |
 | `/` | **Home** | Value proposition, core pillars, capability overview, and partnership CTA |
 | `/about` | **About HarKhil Agro** | Heritage under HarKhil, core principles, and 3-year phased horizon roadmap |
-| `/solutions` | **Solutions & Capabilities** | Soil diagnostics, phenology advisory, retail hub OS, and traceability |
-| `/products-ventures` | **Ventures & Ecosystem** | HarKhil Krishi platform, regional model hub, and bio-nutrients |
+| `/solutions` | **Solutions & Capabilities** | Soil diagnostics, phenology advisory, enterprise extension, and traceability |
+| `/products-ventures` | **Ventures & Ecosystem** | HarKhil Krishi platform, soil diagnostics suite, and bio-nutrients |
 | `/innovation-research` | **Innovation & Research** | Soil microbiology, micro-zone nutrition, climate resilience, and CV models |
 | `/contact` | **Contact & Inquiries** | Structured partnership inquiry form, office hub details, and business hours |
 | `/privacy-policy` | **Privacy Policy** | Comprehensive corporate data governance, farmer rights, and security standards |
@@ -82,5 +82,5 @@ npm run preview
 
 - **Completely Independent:** No files from `D:\HarKhil-Agro` are imported or modified.
 - **Truth in Data:** All metrics and status labels clearly differentiate between active deployments, active pilots, and future research milestones.
-- **Zero Fabrication:** Operational hub hours for the HarKhil Agro Regional Model Hub reflect verified operating standards (Shop: 7:00 AM – 8:30 PM, Deliveries: 10:00 AM – 4:00 PM).
+- **Zero Fabrication:** All metrics, research initiatives, and platform capabilities represent verified HarKhil Agro projects without simulated claims or client data.
 
