@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, Sprout } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sprout, ShoppingBag } from 'lucide-react';
 import { Button } from './UI';
 
 export const Navbar: React.FC = () => {
@@ -76,6 +76,18 @@ export const Navbar: React.FC = () => {
 
           {/* Action CTAs */}
           <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="https://market.agro.harkhil.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-forest-900 bg-gold-400/20 border border-gold-500/30 hover:bg-gold-400/30 transition-colors shadow-xs"
+              title="Launch HarKhil Agro Marketplace"
+            >
+              <ShoppingBag className="w-3.5 h-3.5 text-forest-900" />
+              <span>मार्केटप्लेस / Shop</span>
+              <ArrowUpRight className="w-3 h-3 text-warm-500" />
+            </a>
+
             <Button to="/contact" variant="primary" size="sm">
               <span>Partner With Us</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -115,6 +127,16 @@ export const Navbar: React.FC = () => {
               ))}
             </div>
             <div className="mt-4 pt-3 border-t border-warm-200/60 flex flex-col gap-2">
+              <a
+                href="https://market.agro.harkhil.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-forest-900 bg-gold-400/20 border border-gold-500/30 hover:bg-gold-400/30 transition-colors"
+              >
+                <ShoppingBag className="w-4 h-4 text-forest-900" />
+                <span>मार्केटप्लेस / Marketplace</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-warm-500" />
+              </a>
               <Button to="/contact" variant="primary" size="md" className="w-full">
                 <span>Partner With Us</span>
                 <ArrowUpRight className="w-4 h-4 ml-1" />
