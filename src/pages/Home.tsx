@@ -2,8 +2,10 @@ import React from 'react';
 import { ArrowRight, CheckCircle2, Shield, Leaf, BarChart3, Database, Cpu, Compass, Layers, Sparkles, ShoppingBag } from 'lucide-react';
 import { Button, Card, Badge, SectionHeader } from '../components/UI';
 import { SEO } from '../components/SEO';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Home: React.FC = () => {
+  const { isHindi } = useLanguage();
   return (
     <>
       <SEO
@@ -43,7 +45,7 @@ export const Home: React.FC = () => {
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <Button to="/marketplace" variant="gold" size="lg">
                 <ShoppingBag className="w-4 h-4 mr-1 text-forest-950" />
-                <span>कृषि बाज़ार / Marketplace</span>
+                <span>{isHindi ? 'कृषि बाज़ार' : 'Explore Marketplace'}</span>
               </Button>
               <Button to="/solutions" variant="primary" size="lg">
                 <span>Explore Solutions</span>

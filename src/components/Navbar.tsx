@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, Sprout, ShoppingBag } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sprout, ShoppingBag, Globe } from 'lucide-react';
 import { Button } from './UI';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { toggleLanguage, isHindi } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,15 +23,25 @@ export const Navbar: React.FC = () => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Marketplace', path: '/marketplace' },
-    { name: 'About', path: '/about' },
-    { name: 'Solutions', path: '/solutions' },
-    { name: 'Ventures', path: '/products-ventures' },
-    { name: 'R&D', path: '/innovation-research' },
-    { name: 'Contact', path: '/contact' },
-  ];
+  const navLinks = isHindi
+    ? [
+        { name: 'होम', path: '/' },
+        { name: 'कृषि बाज़ार', path: '/marketplace' },
+        { name: 'परिचय', path: '/about' },
+        { name: 'समाधान', path: '/solutions' },
+        { name: 'उद्यम', path: '/products-ventures' },
+        { name: 'अनुसंधान', path: '/innovation-research' },
+        { name: 'संपर्क', path: '/contact' },
+      ]
+    : [
+        { name: 'Home', path: '/' },
+        { name: 'Marketplace', path: '/marketplace' },
+        { name: 'About', path: '/about' },
+        { name: 'Solutions', path: '/solutions' },
+        { name: 'Ventures', path: '/products-ventures' },
+        { name: 'R&D', path: '/innovation-research' },
+        { name: 'Contact', path: '/contact' },
+      ];
 
   return (
     <header
@@ -77,23 +89,44 @@ export const Navbar: React.FC = () => {
 
           {/* Action CTAs */}
           <div className="hidden lg:flex items-center gap-3">
+            {/* Language Switcher */}
+            <button
+              onClick={toggleLanguage}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-forest-900 bg-white hover:bg-warm-100 border border-warm-300 transition-colors shadow-xs"
+              title={isHindi ? 'Switch to English' : 'हिन्दी में बदलें'}
+              aria-label="Toggle language"
+            >
+              <Globe className="w-3.5 h-3.5 text-nature-600" />
+              <span className="font-bold">{isHindi ? 'हिन्दी' : 'EN'}</span>
+            </button>
+
             <Link
               to="/marketplace"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-forest-900 bg-gold-400/20 border border-gold-500/40 hover:bg-gold-400/30 transition-colors shadow-xs"
-              title="HarKhil Krishi Marketplace"
+              title={isHindi ? 'हरखिल कृषि बाज़ार' : 'HarKhil Krishi Marketplace'}
             >
               <ShoppingBag className="w-3.5 h-3.5 text-forest-900" />
-              <span>कृषि बाज़ार / Shop</span>
+              <span>{isHindi ? 'कृषि बाज़ार' : 'Marketplace'}</span>
             </Link>
 
             <Button to="/contact" variant="primary" size="sm">
-              <span>Partner With Us</span>
+              <span>{isHindi ? 'साझेदारी करें' : 'Partner With Us'}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex lg:hidden">
+          {/* Mobile Menu & Language Toggle */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={toggleLanguage}
+              className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-semibold text-forest-900 bg-white border border-warm-300 shadow-xs"
+              title={isHindi ? 'Switch to English' : 'हिन्दी में बदलें'}
+              aria-label="Toggle language"
+            >
+              <Globe className="w-3.5 h-3.5 text-nature-600" />
+              <span className="font-bold">{isHindi ? 'हिन्दी' : 'EN'}</span>
+            </button>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg text-forest-900 hover:bg-warm-100 focus:outline-none"
@@ -130,10 +163,10 @@ export const Navbar: React.FC = () => {
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-forest-900 bg-gold-400/20 border border-gold-500/40 hover:bg-gold-400/30 transition-colors"
               >
                 <ShoppingBag className="w-4 h-4 text-forest-900" />
-                <span>कृषि बाज़ार / Marketplace</span>
+                <span>{isHindi ? 'कृषि बाज़ार' : 'Marketplace'}</span>
               </Link>
               <Button to="/contact" variant="primary" size="md" className="w-full">
-                <span>Partner With Us</span>
+                <span>{isHindi ? 'साझेदारी करें' : 'Partner With Us'}</span>
                 <ArrowUpRight className="w-4 h-4 ml-1" />
               </Button>
             </div>

@@ -10,6 +10,7 @@ import { InnovationResearch } from './pages/InnovationResearch';
 import { Marketplace } from './pages/Marketplace';
 import { Contact } from './pages/Contact';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { LanguageProvider } from './context/LanguageContext';
 import { Button } from './components/UI';
 import { Sprout } from 'lucide-react';
 
@@ -41,26 +42,28 @@ const NotFound: React.FC = () => {
 
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <div className="flex flex-col min-h-screen bg-warm-50 text-warm-900 font-sans">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/products-ventures" element={<ProductsVentures />} />
-            <Route path="/innovation-research" element={<InnovationResearch />} />
-            <Route path="/marketplace" element={<Marketplace />} />
-            <Route path="/shop" element={<Navigate to="/marketplace" replace />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <div className="flex flex-col min-h-screen bg-warm-50 text-warm-900 font-sans">
+          <Navbar />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/products-ventures" element={<ProductsVentures />} />
+              <Route path="/innovation-research" element={<InnovationResearch />} />
+              <Route path="/marketplace" element={<Marketplace />} />
+              <Route path="/shop" element={<Navigate to="/marketplace" replace />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 };
 

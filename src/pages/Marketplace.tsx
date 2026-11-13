@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import { Button, Card } from '../components/UI';
 import { SEO } from '../components/SEO';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ProductItem {
   id: string;
@@ -32,11 +33,15 @@ interface ProductItem {
   category: 'seeds' | 'nutrition' | 'protection' | 'diagnostics' | 'equipment';
   brand: string;
   packSize: string;
+  packSizeHi: string;
   price: number;
   originalPrice?: number;
   description: string;
+  descriptionHi: string;
   specifications: string[];
+  specificationsHi: string[];
   certification: string;
+  certificationHi: string;
   inStock: boolean;
   featured?: boolean;
 }
@@ -49,11 +54,15 @@ const PRODUCTS: ProductItem[] = [
     category: 'seeds',
     brand: 'HarKhil Seed Science',
     packSize: '3 kg Pack',
+    packSizeHi: '3 किलो पैक',
     price: 1450,
     originalPrice: 1650,
-    description: 'उच्च उपज क्षमता, जीवाणु पत्ती झुलसा (BLB) रोधी, 125-130 दिन की परिपक्वता अवधि वाली संकर किस्म।',
-    specifications: ['अंकुरण दर: 90%+', 'परिपक्वता: 125-130 दिन', 'दाना: लंबा एवं पतला चमकदार'],
+    description: 'High-tillering hybrid paddy variety with bacterial leaf blight (BLB) resistance, 125-130 day maturity, and lustrous slender grains.',
+    descriptionHi: 'उच्च उपज क्षमता, जीवाणु पत्ती झुलसा (BLB) रोधी, 125-130 दिन की परिपक्वता अवधि वाली संकर किस्म।',
+    specifications: ['Germination Rate: 90%+', 'Maturity: 125-130 Days', 'Grain: Long & Slender Lustrous'],
+    specificationsHi: ['अंकुरण दर: 90%+', 'परिपक्वता: 125-130 दिन', 'दाना: लंबा एवं पतला चमकदार'],
     certification: 'Seed Certification Agency Tested',
+    certificationHi: 'प्रमाणित बीज परीक्षण एजेंसी द्वारा स्वीकृत',
     inStock: true,
     featured: true,
   },
@@ -64,11 +73,15 @@ const PRODUCTS: ProductItem[] = [
     category: 'nutrition',
     brand: 'HarKhil NutriTech',
     packSize: '500 ml Bottle',
+    packSizeHi: '500 मिली बोतल',
     price: 480,
     originalPrice: 560,
-    description: 'पत्तियों द्वारा त्वरित अवशोषण युक्त तरल जिंक पोषण। धान, मक्का एवं सब्जियों में खैरा रोग एवं पीलापन दूर करता है।',
-    specifications: ['Zn EDTA: 12% Min', 'पूर्णतः घुलनशील', 'स्प्रे एवं ड्रिप दोनों के लिए अनुकूल'],
+    description: 'Rapid foliar absorption zinc chelate. Corrects Khaira disease and interveinal chlorosis in paddy, maize, and vegetable crops.',
+    descriptionHi: 'पत्तियों द्वारा त्वरित अवशोषण युक्त तरल जिंक पोषण। धान, मक्का एवं सब्जियों में खैरा रोग एवं पीलापन दूर करता है।',
+    specifications: ['Zn EDTA: 12% Min', '100% Water Soluble', 'Optimized for Foliar & Drip'],
+    specificationsHi: ['Zn EDTA: 12% Min', 'पूर्णतः घुलनशील', 'स्प्रे एवं ड्रिप दोनों के लिए अनुकूल'],
     certification: 'FCO Quality Standard Compliant',
+    certificationHi: 'एफसीओ गुणवत्ता मानक अनुरूप',
     inStock: true,
     featured: true,
   },
@@ -79,11 +92,15 @@ const PRODUCTS: ProductItem[] = [
     category: 'protection',
     brand: 'HarKhil BioProtect',
     packSize: '1 kg Foil Pack',
+    packSizeHi: '1 किलो पैक',
     price: 320,
     originalPrice: 380,
-    description: 'जड़ सड़न, उकठा (Wilt) और बीज जनित रोगों से सुरक्षा प्रदान करने वाला प्राकृतिक मित्र फफूंद कल्चर।',
-    specifications: ['CFU गणना: 2x10^6 प्रति ग्राम', 'बीज उपचार एवं मृदा उपचार हेतु', '100% पर्यावरण सुरक्षित'],
+    description: 'Beneficial antagonistic fungal inoculant for preventing root rot, Fusarium wilt, collar rot, and seed-borne phytopathogens.',
+    descriptionHi: 'जड़ सड़न, उकठा (Wilt) और बीज जनित रोगों से सुरक्षा प्रदान करने वाला प्राकृतिक मित्र फफूंद कल्चर।',
+    specifications: ['CFU Count: 2x10^6 per gram', 'For Seed & Soil Treatment', 'Zero Chemical Residue Safe'],
+    specificationsHi: ['CFU गणना: 2x10^6 प्रति ग्राम', 'बीज उपचार एवं मृदा उपचार हेतु', '100% पर्यावरण सुरक्षित'],
     certification: 'CIBRC Registered Bio-Control',
+    certificationHi: 'सीआईबीआरसी पंजीकृत जैव नियंत्रण',
     inStock: true,
     featured: false,
   },
@@ -94,11 +111,15 @@ const PRODUCTS: ProductItem[] = [
     category: 'nutrition',
     brand: 'HarKhil NutriTech',
     packSize: '10 kg Bag',
+    packSizeHi: '10 किलो बैग',
     price: 850,
     originalPrice: 990,
-    description: 'भूमि की जल धारण क्षमता एवं जैविक कार्बन बढ़ाने तथा जड़ों के तीव्र विकास हेतु उच्च शक्ति दानेदार खाद।',
-    specifications: ['ह्यूमिक एसिड: 65%', 'फुल्विक एसिड: 15%', 'पोटाश संवर्धित'],
+    description: 'Soil conditioner granules formulated to enhance organic carbon, cation exchange capacity, root elongation, and moisture retention.',
+    descriptionHi: 'भूमि की जल धारण क्षमता एवं जैविक कार्बन बढ़ाने तथा जड़ों के तीव्र विकास हेतु उच्च शक्ति दानेदार खाद।',
+    specifications: ['Humic Acid: 65%', 'Fulvic Acid: 15%', 'Potassium Enriched Rhizosphere'],
+    specificationsHi: ['ह्यूमिक एसिड: 65%', 'फुल्विक एसिड: 15%', 'पोटाश संवर्धित'],
     certification: 'Organic NPOP Compliant',
+    certificationHi: 'जैविक एनपीओपी मानक अनुरूप',
     inStock: true,
     featured: true,
   },
@@ -109,11 +130,15 @@ const PRODUCTS: ProductItem[] = [
     category: 'diagnostics',
     brand: 'HarKhil Diagnostics',
     packSize: '1 Field Unit + Sensor',
+    packSizeHi: '1 फील्ड यूनिट + सेंसर',
     price: 3850,
     originalPrice: 4500,
-    description: 'खेत पर तुरंत मृदा का pH, नमी, विद्युत चालकता (EC) एवं पोषक स्थिति मापने वाला आधुनिक डिजिटल सेंसर।',
-    specifications: ['तुरंत डिजिटल LCD रीडिंग', 'स्टेनलेस स्टील सेंसिंग पिन', 'IP67 वाटरप्रूफ बॉडी'],
+    description: 'Handheld agro-sensor for instant in-situ field measurement of soil pH, electrical conductivity (EC), moisture, and NPK indices.',
+    descriptionHi: 'खेत पर तुरंत मृदा का pH, नमी, विद्युत चालकता (EC) एवं पोषक स्थिति मापने वाला आधुनिक डिजिटल सेंसर।',
+    specifications: ['Backlit Digital LCD Display', 'Triple Stainless Steel Sensing Pins', 'IP67 Waterproof Field Casing'],
+    specificationsHi: ['तुरंत डिजिटल LCD रीडिंग', 'स्टेनलेस स्टील सेंसिंग पिन', 'IP67 वाटरप्रूफ बॉडी'],
     certification: 'CE & ISO Calibrated Laboratory Grade',
+    certificationHi: 'सीई एवं आईएसओ कैलिब्रेटेड लैब ग्रेड',
     inStock: true,
     featured: true,
   },
@@ -124,11 +149,15 @@ const PRODUCTS: ProductItem[] = [
     category: 'equipment',
     brand: 'HarKhil AgroEquip',
     packSize: '1 Complete Unit',
+    packSizeHi: '1 संपूर्ण यूनिट',
     price: 2950,
     originalPrice: 3400,
-    description: '12V 12Ah लेड-एसिड बैटरी चालित, प्रेशर रेगुलेटर और 4 प्रकार के नोजल सेट युक्त मजबूत स्प्रे पंप।',
-    specifications: ['बैटरी: 12V 12Ah (6-8 घंटे बैकअप)', 'टैंक क्षमता: 16 लीटर उच्च घनत्व प्लास्टिक', 'स्टेनलेस स्टील टेलीस्कोपिक लांस'],
+    description: 'Rechargeable 12V 12Ah dual-motor sprayer featuring precision pressure regulation, telescopic stainless lance, and 4 specialized nozzles.',
+    descriptionHi: '12V 12Ah लेड-एसिड बैटरी चालित, प्रेशर रेगुलेटर और 4 प्रकार के नोजल सेट युक्त मजबूत स्प्रे पंप।',
+    specifications: ['Battery: 12V 12Ah (6-8 Hrs Operation)', 'Tank: 16L Virgin High-Density Polymer', 'Stainless Steel Telescopic Lance'],
+    specificationsHi: ['बैटरी: 12V 12Ah (6-8 घंटे बैकअप)', 'टैंक क्षमता: 16 लीटर उच्च घनत्व प्लास्टिक', 'स्टेनलेस स्टील टेलीस्कोपिक लांस'],
     certification: 'Heavy Duty Field Tested',
+    certificationHi: 'कठिन कृषि परिस्थितियों में परीक्षित',
     inStock: true,
     featured: false,
   },
@@ -139,11 +168,15 @@ const PRODUCTS: ProductItem[] = [
     category: 'protection',
     brand: 'HarKhil BioProtect',
     packSize: '1 Liter Bottle',
+    packSizeHi: '1 लीटर बोतल',
     price: 650,
     originalPrice: 750,
-    description: 'रस चूसक कीटों (माहू, सफेद मक्खी, थ्रिप्स) एवं सुंडियों के जैविक नियंत्रण हेतु शक्तिशाली नीम अर्क।',
-    specifications: ['अज़ाडिरैक्टीन: 1% EC (10,000 PPM)', 'परागकण कीटों (मधुमक्खी) हेतु सुरक्षित', 'शून्य रासायनिक अवशेष'],
+    description: 'Botanical broad-spectrum bio-insecticide for deterrence and control of aphids, whiteflies, thrips, and lepidopteran larvae.',
+    descriptionHi: 'रस चूसक कीटों (माहू, सफेद मक्खी, थ्रिप्स) एवं सुंडियों के जैविक नियंत्रण हेतु शक्तिशाली नीम अर्क।',
+    specifications: ['Azadirachtin: 1% EC (10,000 PPM)', 'Pollinator & Bee Friendly', 'Zero Chemical Residue Pre-Harvest'],
+    specificationsHi: ['अज़ाडिरैक्टीन: 1% EC (10,000 PPM)', 'परागकण कीटों (मधुमक्खी) हेतु सुरक्षित', 'शून्य रासायनिक अवशेष'],
     certification: 'CIBRC Certified Bio-Insecticide',
+    certificationHi: 'सीआईबीआरसी प्रमाणित जैव कीटनाशक',
     inStock: true,
     featured: false,
   },
@@ -154,11 +187,15 @@ const PRODUCTS: ProductItem[] = [
     category: 'nutrition',
     brand: 'HarKhil NutriTech',
     packSize: '1 Liter Bottle',
+    packSizeHi: '1 लीटर बोतल',
     price: 390,
     originalPrice: 480,
-    description: 'वायुमंडलीय नाइट्रोजन स्थिरीकरण, फॉस्फोरस घुलनशीलता एवं पोटाश गतिशीलता बढ़ाने वाले जीवाणुओं का तरल समूह।',
-    specifications: ['जीवित जीवाणु: 1x10^8 CFU/ml', 'रासायनिक खाद पर 20-25% बचत', 'बीज एवं ड्रिप अनुप्रयोग'],
+    description: 'Consortium of nitrogen-fixing (Azotobacter), phosphate-solubilizing (PSB), and potash-mobilizing (KMB) viable liquid cultures.',
+    descriptionHi: 'वायुमंडलीय नाइट्रोजन स्थिरीकरण, फॉस्फोरस घुलनशीलता एवं पोटाश गतिशीलता बढ़ाने वाले जीवाणुओं का तरल समूह।',
+    specifications: ['Viable Cell Count: 1x10^8 CFU/ml', 'Saves 20-25% Chemical Fertilizers', 'Applicable via Seed & Drip Irrigation'],
+    specificationsHi: ['जीवित जीवाणु: 1x10^8 CFU/ml', 'रासायनिक खाद पर 20-25% बचत', 'बीज एवं ड्रिप अनुप्रयोग'],
     certification: 'National Biofertilizer Standard FCO',
+    certificationHi: 'राष्ट्रीय जैव उर्वरक मानक एफसीओ',
     inStock: true,
     featured: false,
   },
@@ -169,26 +206,22 @@ const PRODUCTS: ProductItem[] = [
     category: 'seeds',
     brand: 'HarKhil Seed Science',
     packSize: '4 kg Pack',
+    packSizeHi: '4 किलो पैक',
     price: 1680,
     originalPrice: 1900,
-    description: 'सूखा सहनशील, मजबूत तना, गिरनारोधी एवं नारंगी-पीले ठोस दानों वाली खरीफ व रबी की अग्रणी मक्का किस्म।',
-    specifications: ['परिपक्वता: 100-110 दिन', 'दाना भराव: भुट्टे के शीर्ष तक', 'चारा गुणवत्ता: उच्च'],
+    description: 'Drought-tolerant, lodging-resistant Kharif and Rabi hybrid corn with bold orange-yellow flint grains and superior cob-tip filling.',
+    descriptionHi: 'सूखा सहनशील, मजबूत तना, गिरनारोधी एवं नारंगी-पीले ठोस दानों वाली खरीफ व रबी की अग्रणी मक्का किस्म।',
+    specifications: ['Maturity: 100-110 Days', 'Cob Tip Filling: Complete', 'Fodder Quality: Superior Stay-Green'],
+    specificationsHi: ['परिपक्वता: 100-110 दिन', 'दाना भराव: भुट्टे के शीर्ष तक', 'चारा गुणवत्ता: उच्च'],
     certification: 'Certified High Germination Tested',
+    certificationHi: 'उच्च अंकुरण प्रमाणित संकर बीज',
     inStock: true,
     featured: false,
   },
 ];
 
-const CATEGORIES = [
-  { id: 'all', nameEn: 'All Products', nameHi: 'सभी उत्पाद', icon: Layers },
-  { id: 'seeds', nameEn: 'Seeds & Hybrids', nameHi: 'प्रमाणित बीज', icon: Sprout },
-  { id: 'nutrition', nameEn: 'Bio-Fertilizers & Nutrients', nameHi: 'उर्वरक एवं पोषण', icon: FlaskConical },
-  { id: 'protection', nameEn: 'Crop Protection & Bio', nameHi: 'फसल सुरक्षा', icon: Shield },
-  { id: 'diagnostics', nameEn: 'Soil & Sensors', nameHi: 'मृदा परीक्षण किट', icon: Cpu },
-  { id: 'equipment', nameEn: 'Sprayers & Implements', nameHi: 'कृषि उपकरण', icon: Wrench },
-];
-
 export const Marketplace: React.FC = () => {
+  const { isHindi } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortBy, setSortBy] = useState<'featured' | 'price-asc' | 'price-desc'>('featured');
@@ -201,6 +234,15 @@ export const Marketplace: React.FC = () => {
   const [customerLocation, setCustomerLocation] = useState<string>('');
   const [orderCopied, setOrderCopied] = useState<boolean>(false);
 
+  const categories = useMemo(() => [
+    { id: 'all', name: isHindi ? 'सभी उत्पाद' : 'All Products', icon: Layers },
+    { id: 'seeds', name: isHindi ? 'प्रमाणित बीज' : 'Certified Seeds', icon: Sprout },
+    { id: 'nutrition', name: isHindi ? 'उर्वरक एवं पोषण' : 'Bio-Fertilizers & Nutrients', icon: FlaskConical },
+    { id: 'protection', name: isHindi ? 'फसल सुरक्षा' : 'Crop Protection & Bio', icon: Shield },
+    { id: 'diagnostics', name: isHindi ? 'मृदा परीक्षण किट' : 'Soil Diagnostics & Sensors', icon: Cpu },
+    { id: 'equipment', name: isHindi ? 'कृषि उपकरण' : 'Farm Equipment & Sprayers', icon: Wrench },
+  ], [isHindi]);
+
   // Filtered & Sorted products
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((item) => {
@@ -211,7 +253,8 @@ export const Marketplace: React.FC = () => {
         item.name.toLowerCase().includes(q) ||
         item.nameHi.includes(q) ||
         item.brand.toLowerCase().includes(q) ||
-        item.description.toLowerCase().includes(q);
+        item.description.toLowerCase().includes(q) ||
+        item.descriptionHi.includes(q);
       return matchCategory && matchSearch;
     }).sort((a, b) => {
       if (sortBy === 'price-asc') return a.price - b.price;
@@ -270,20 +313,26 @@ export const Marketplace: React.FC = () => {
 
   // Generate formatted order text
   const generateOrderSummary = () => {
-    let text = `*HarKhil Agro — कृषि सामग्री आदेश / Dispatch Request*\n`;
+    let text = isHindi 
+      ? `*HarKhil Agro — कृषि सामग्री आदेश / Dispatch Request*\n`
+      : `*HarKhil Agro — Agricultural Input Dispatch Request*\n`;
     text += `━━━━━━━━━━━━━━━━━━━━\n`;
-    if (customerName) text += `👤 ग्राहक / किसान: ${customerName}\n`;
-    if (customerPhone) text += `📞 मोबाइल: ${customerPhone}\n`;
-    if (customerLocation) text += `📍 पता / जिला: ${customerLocation}\n`;
+    if (customerName) text += isHindi ? `👤 ग्राहक / किसान: ${customerName}\n` : `👤 Buyer / Grower: ${customerName}\n`;
+    if (customerPhone) text += isHindi ? `📞 मोबाइल: ${customerPhone}\n` : `📞 Mobile: ${customerPhone}\n`;
+    if (customerLocation) text += isHindi ? `📍 पता / जिला: ${customerLocation}\n` : `📍 Location / District: ${customerLocation}\n`;
     text += `━━━━━━━━━━━━━━━━━━━━\n`;
-    text += `*आदेशित सामग्री:*\n`;
+    text += isHindi ? `*आदेशित सामग्री:*\n` : `*Ordered Items:*\n`;
     cartItemsList.forEach((item, index) => {
-      text += `${index + 1}. ${item.product.nameHi} (${item.product.packSize})\n`;
-      text += `   मात्रा: ${item.quantity} | दर: ₹${item.product.price} | कुल: ₹${item.product.price * item.quantity}\n`;
+      const title = isHindi ? item.product.nameHi : item.product.name;
+      const pack = isHindi ? item.product.packSizeHi : item.product.packSize;
+      text += `${index + 1}. ${title} (${pack})\n`;
+      text += `   Qty: ${item.quantity} | Rate: ₹${item.product.price} | Total: ₹${item.product.price * item.quantity}\n`;
     });
     text += `━━━━━━━━━━━━━━━━━━━━\n`;
-    text += `*कुल अनुमानित राशि: ₹${totalCartAmount.toLocaleString('en-IN')}*\n`;
-    text += `प्रेषण केंद्र: HarKhil Central Supply Hub, India\n`;
+    text += isHindi 
+      ? `*कुल अनुमानित राशि: ₹${totalCartAmount.toLocaleString('en-IN')}*\n`
+      : `*Total Estimated Amount: ₹${totalCartAmount.toLocaleString('en-IN')}*\n`;
+    text += `Dispatch Hub: HarKhil Central Supply Hub, India\n`;
     return text;
   };
 
@@ -296,15 +345,14 @@ export const Marketplace: React.FC = () => {
 
   const handleWhatsAppOrder = () => {
     const text = encodeURIComponent(generateOrderSummary());
-    // Direct WhatsApp business dispatch draft
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
 
   return (
     <>
       <SEO
-        title="कृषि बाज़ार (Marketplace) — प्रमाणित बीज, उर्वरक व कृषि उपकरण"
-        description="हरखिल कृषि बाज़ार: प्रमाणित संकर बीज, जैव उर्वरक, फसल सुरक्षा रसायन एवं आधुनिक कृषि यंत्र सीधे अधिकृत हब से प्राप्त करें।"
+        title={isHindi ? "कृषि बाज़ार (Marketplace) — प्रमाणित बीज, उर्वरक व उपकरण" : "Agricultural Inputs & Equipment Marketplace"}
+        description={isHindi ? "हरखिल कृषि बाज़ार: प्रमाणित संकर बीज, जैव उर्वरक, फसल सुरक्षा रसायन एवं आधुनिक कृषि यंत्र सीधे अधिकृत हब से प्राप्त करें।" : "HarKhil Krishi Marketplace: Certified hybrid seeds, bio-nutrients, crop protection, and modern machinery with verified batch quality."}
         canonical="https://agro.harkhil.com/marketplace"
       />
 
@@ -315,13 +363,19 @@ export const Marketplace: React.FC = () => {
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-900/5 border border-forest-900/10 text-forest-900 text-xs font-semibold uppercase tracking-wider mb-4">
               <ShoppingBag className="w-3.5 h-3.5 text-nature-600" />
-              <span>HarKhil Krishi Marketplace • कृषि इनपुट बाज़ार</span>
+              <span>{isHindi ? 'हरखिल कृषि बाज़ार • प्रमाणित कृषि इनपुट' : 'HarKhil Krishi Marketplace • Agricultural Commerce'}</span>
             </div>
             <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-forest-900">
-              प्रमाणित कृषि सामग्री एवं <span className="gold-gradient-text">आधुनिक उपकरण</span>
+              {isHindi ? (
+                <>प्रमाणित कृषि सामग्री एवं <span className="gold-gradient-text">आधुनिक उपकरण</span></>
+              ) : (
+                <>Certified Agricultural Inputs & <span className="gold-gradient-text">Modern Equipment</span></>
+              )}
             </h1>
             <p className="mt-4 text-base sm:text-lg text-warm-700 leading-relaxed">
-              वैज्ञानिक मानकों पर परीक्षित संकर बीज, उच्च-प्रभावी जैव उर्वरक, फसल सुरक्षा और आधुनिक स्प्रेयर — 100% प्रामाणिक बैच गारंटी के साथ।
+              {isHindi
+                ? 'वैज्ञानिक मानकों पर परीक्षित संकर बीज, उच्च-प्रभावी जैव उर्वरक, फसल सुरक्षा और आधुनिक स्प्रेयर — 100% प्रामाणिक बैच गारंटी के साथ।'
+                : 'Scientifically validated hybrid seeds, high-potency bio-nutrients, biological crop protection, and precision farm sprayers — backed by 100% batch authenticity.'}
             </p>
           </div>
 
@@ -329,19 +383,19 @@ export const Marketplace: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-2xl bg-warm-100/80 border border-warm-200 mb-8 text-xs sm:text-sm text-forest-900">
             <div className="flex items-center gap-2.5">
               <ShieldCheck className="w-5 h-5 text-nature-600 shrink-0" />
-              <span>100% प्रमाणित बैच गुणवत्ता</span>
+              <span>{isHindi ? '100% प्रमाणित बैच गुणवत्ता' : '100% Batch Certified Quality'}</span>
             </div>
             <div className="flex items-center gap-2.5">
               <Truck className="w-5 h-5 text-nature-600 shrink-0" />
-              <span>केंद्रीय हब से सुरक्षित प्रेषण</span>
+              <span>{isHindi ? 'केंद्रीय हब से सुरक्षित प्रेषण' : 'Direct Central Hub Dispatch'}</span>
             </div>
             <div className="flex items-center gap-2.5">
               <FlaskConical className="w-5 h-5 text-nature-600 shrink-0" />
-              <span>प्रयोगशाला परीक्षण रिपोर्ट उपलब्ध</span>
+              <span>{isHindi ? 'प्रयोगशाला परीक्षण रिपोर्ट उपलब्ध' : 'Lab Test Certificates Available'}</span>
             </div>
             <div className="flex items-center gap-2.5">
               <PhoneCall className="w-5 h-5 text-nature-600 shrink-0" />
-              <span>कृषि वैज्ञानिक तकनीकी परामर्श</span>
+              <span>{isHindi ? 'कृषि वैज्ञानिक तकनीकी परामर्श' : 'Agronomic Technical Advisory'}</span>
             </div>
           </div>
 
@@ -354,7 +408,7 @@ export const Marketplace: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="उत्पाद का नाम, घटक या ब्रांड खोजें..."
+                placeholder={isHindi ? "उत्पाद का नाम, घटक या ब्रांड खोजें..." : "Search products by name, active ingredient, or brand..."}
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-warm-300 bg-white text-forest-900 text-sm placeholder:text-warm-400 focus:outline-none focus:ring-2 focus:ring-forest-800 focus:border-transparent transition"
               />
               {searchQuery && (
@@ -371,23 +425,23 @@ export const Marketplace: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-2 text-xs text-warm-600 font-medium">
                 <SlidersHorizontal className="w-3.5 h-3.5" />
-                <span>क्रमबद्ध करें:</span>
+                <span>{isHindi ? 'क्रमबद्ध करें:' : 'Sort by:'}</span>
               </div>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
                 className="py-2 px-3 rounded-lg border border-warm-300 bg-white text-forest-900 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-forest-800 transition"
               >
-                <option value="featured">अनुशंसित (Featured)</option>
-                <option value="price-asc">मूल्य: कम से अधिक</option>
-                <option value="price-desc">मूल्य: अधिक से कम</option>
+                <option value="featured">{isHindi ? 'अनुशंसित (Featured)' : 'Recommended (Featured)'}</option>
+                <option value="price-asc">{isHindi ? 'मूल्य: कम से अधिक' : 'Price: Low to High'}</option>
+                <option value="price-desc">{isHindi ? 'मूल्य: अधिक से कम' : 'Price: High to Low'}</option>
               </select>
             </div>
           </div>
 
           {/* Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
-            {CATEGORIES.map((cat) => {
+            {categories.map((cat) => {
               const Icon = cat.icon;
               const isActive = activeCategory === cat.id;
               return (
@@ -401,8 +455,7 @@ export const Marketplace: React.FC = () => {
                   }`}
                 >
                   <Icon className={`w-4 h-4 ${isActive ? 'text-gold-400' : 'text-warm-500'}`} />
-                  <span>{cat.nameHi}</span>
-                  <span className="text-[11px] opacity-75 hidden sm:inline">({cat.nameEn})</span>
+                  <span>{cat.name}</span>
                 </button>
               );
             })}
@@ -414,9 +467,13 @@ export const Marketplace: React.FC = () => {
               <div className="w-12 h-12 rounded-xl bg-warm-100 flex items-center justify-center mx-auto mb-4 text-warm-500">
                 <Search className="w-6 h-6" />
               </div>
-              <h3 className="font-serif text-lg font-bold text-forest-900">कोई उत्पाद नहीं मिला</h3>
+              <h3 className="font-serif text-lg font-bold text-forest-900">
+                {isHindi ? 'कोई उत्पाद नहीं मिला' : 'No Products Located'}
+              </h3>
               <p className="text-sm text-warm-600 mt-1">
-                आपके द्वारा खोजे गए शब्द या श्रेणी में कोई सामग्री उपलब्ध नहीं है। कृपया फ़िल्टर बदलें।
+                {isHindi
+                  ? 'आपके द्वारा खोजे गए शब्द या श्रेणी में कोई सामग्री उपलब्ध नहीं है। कृपया फ़िल्टर बदलें।'
+                  : 'No items match your active search terms or category selection. Please adjust your filters.'}
               </p>
               <button
                 onClick={() => {
@@ -425,13 +482,19 @@ export const Marketplace: React.FC = () => {
                 }}
                 className="mt-4 px-4 py-2 rounded-lg bg-forest-900 text-white text-xs font-semibold hover:bg-forest-800 transition"
               >
-                सभी उत्पाद देखें
+                {isHindi ? 'सभी उत्पाद देखें' : 'View All Products'}
               </button>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProducts.map((prod) => {
                 const qtyInCart = cart[prod.id] || 0;
+                const title = isHindi ? prod.nameHi : prod.name;
+                const description = isHindi ? prod.descriptionHi : prod.description;
+                const specs = isHindi ? prod.specificationsHi : prod.specifications;
+                const pack = isHindi ? prod.packSizeHi : prod.packSize;
+                const cert = isHindi ? prod.certificationHi : prod.certification;
+
                 return (
                   <Card key={prod.id} className="flex flex-col justify-between hover:shadow-md transition-shadow duration-200">
                     <div>
@@ -441,26 +504,28 @@ export const Marketplace: React.FC = () => {
                           {prod.brand}
                         </span>
                         <span className="text-xs font-medium text-warm-500">
-                          {prod.packSize}
+                          {pack}
                         </span>
                       </div>
 
                       {/* Product Name */}
                       <h3 className="font-serif text-lg font-bold text-forest-900 leading-snug">
-                        {prod.nameHi}
+                        {title}
                       </h3>
-                      <p className="text-xs text-warm-500 font-sans mt-0.5">
-                        {prod.name}
-                      </p>
+                      {isHindi && (
+                        <p className="text-xs text-warm-500 font-sans mt-0.5">
+                          {prod.name}
+                        </p>
+                      )}
 
                       {/* Description */}
                       <p className="text-xs text-warm-700 mt-3 leading-relaxed">
-                        {prod.description}
+                        {description}
                       </p>
 
                       {/* Specifications bullet points */}
                       <div className="mt-4 pt-3 border-t border-warm-100 space-y-1.5">
-                        {prod.specifications.map((spec, i) => (
+                        {specs.map((spec, i) => (
                           <div key={i} className="flex items-center gap-1.5 text-[11px] text-warm-600">
                             <CheckCircle2 className="w-3.5 h-3.5 text-nature-600 shrink-0" />
                             <span>{spec}</span>
@@ -471,7 +536,7 @@ export const Marketplace: React.FC = () => {
                       {/* Certification Pill */}
                       <div className="mt-3 text-[10px] text-warm-500 flex items-center gap-1 font-medium bg-warm-100/60 p-1.5 rounded-md">
                         <ShieldCheck className="w-3 h-3 text-gold-600 shrink-0" />
-                        <span>{prod.certification}</span>
+                        <span>{cert}</span>
                       </div>
                     </div>
 
@@ -489,7 +554,7 @@ export const Marketplace: React.FC = () => {
                           )}
                         </div>
                         <span className="text-[10px] text-nature-700 font-medium">
-                          जीएसटी एवं पैकिंग सहित
+                          {isHindi ? 'जीएसटी एवं पैकिंग सहित' : 'Incl. GST & Packaging'}
                         </span>
                       </div>
 
@@ -499,7 +564,7 @@ export const Marketplace: React.FC = () => {
                           className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold bg-forest-900 text-white hover:bg-forest-800 transition active:scale-95 shadow-xs"
                         >
                           <Plus className="w-3.5 h-3.5" />
-                          <span>ऑर्डर में जोड़ें</span>
+                          <span>{isHindi ? 'ऑर्डर में जोड़ें' : 'Add to Order'}</span>
                         </button>
                       ) : (
                         <div className="inline-flex items-center gap-2 bg-warm-100 border border-warm-300 rounded-lg p-1">
@@ -539,10 +604,13 @@ export const Marketplace: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-semibold text-white">
-                      {totalCartCount} सामग्री चुनी गई
+                      {isHindi 
+                        ? `${totalCartCount} सामग्री चुनी गई`
+                        : `${totalCartCount} ${totalCartCount === 1 ? 'item' : 'items'} selected`}
                     </h4>
                     <p className="text-xs text-warm-300">
-                      अनुमानित कुल: <strong className="text-gold-400 text-sm">₹{totalCartAmount.toLocaleString('en-IN')}</strong>
+                      {isHindi ? 'अनुमानित कुल: ' : 'Estimated Total: '}
+                      <strong className="text-gold-400 text-sm">₹{totalCartAmount.toLocaleString('en-IN')}</strong>
                     </p>
                   </div>
                 </div>
@@ -551,7 +619,7 @@ export const Marketplace: React.FC = () => {
                   <button
                     onClick={() => setCart({})}
                     className="p-2 text-warm-400 hover:text-warm-100 transition"
-                    title="Clear Order List"
+                    title={isHindi ? "सूची खाली करें" : "Clear Order List"}
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -561,7 +629,7 @@ export const Marketplace: React.FC = () => {
                     size="sm"
                     className="shadow-md"
                   >
-                    <span>ऑर्डर / प्रेषण सूची देखें</span>
+                    <span>{isHindi ? 'ऑर्डर / प्रेषण सूची देखें' : 'View Order Sheet'}</span>
                     <ShoppingBag className="w-3.5 h-3.5 ml-1" />
                   </Button>
                 </div>
@@ -586,10 +654,12 @@ export const Marketplace: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-serif text-lg font-bold text-forest-900">
-                      कृषि सामग्री प्रेषण विवरण
+                      {isHindi ? 'कृषि सामग्री प्रेषण विवरण' : 'Agricultural Input Dispatch Details'}
                     </h3>
                     <p className="text-xs text-warm-500">
-                      सीधे प्रेषण हब से सामग्री प्राप्त करने हेतु विवरण दर्ज करें
+                      {isHindi 
+                        ? 'सीधे प्रेषण हब से सामग्री प्राप्त करने हेतु विवरण दर्ज करें'
+                        : 'Enter delivery details to request direct supply dispatch from HarKhil Central Hub'}
                     </p>
                   </div>
                 </div>
@@ -599,8 +669,12 @@ export const Marketplace: React.FC = () => {
                   {cartItemsList.map((item) => (
                     <div key={item.product.id} className="pt-2 flex items-center justify-between text-xs">
                       <div className="flex-grow pr-2">
-                        <span className="font-semibold text-forest-900 block">{item.product.nameHi}</span>
-                        <span className="text-warm-500 text-[11px]">{item.product.packSize} • ₹{item.product.price} × {item.quantity}</span>
+                        <span className="font-semibold text-forest-900 block">
+                          {isHindi ? item.product.nameHi : item.product.name}
+                        </span>
+                        <span className="text-warm-500 text-[11px]">
+                          {isHindi ? item.product.packSizeHi : item.product.packSize} • ₹{item.product.price} × {item.quantity}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-forest-950 font-serif">
@@ -618,7 +692,7 @@ export const Marketplace: React.FC = () => {
                 </div>
 
                 <div className="mt-4 pt-3 border-t border-warm-200 flex justify-between items-center text-sm font-bold text-forest-900">
-                  <span>कुल प्रेषण मूल्य:</span>
+                  <span>{isHindi ? 'कुल प्रेषण मूल्य:' : 'Total Dispatch Amount:'}</span>
                   <span className="text-lg font-serif text-forest-950">
                     ₹{totalCartAmount.toLocaleString('en-IN')}
                   </span>
@@ -627,37 +701,43 @@ export const Marketplace: React.FC = () => {
                 {/* Farmer Details Form */}
                 <div className="mt-5 space-y-3 pt-3 border-t border-warm-200">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-warm-600">
-                    क्रेता / किसान विवरण
+                    {isHindi ? 'क्रेता / किसान विवरण' : 'Buyer / Grower Information'}
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="text-[11px] font-medium text-warm-700 block mb-1">पूरा नाम</label>
+                      <label className="text-[11px] font-medium text-warm-700 block mb-1">
+                        {isHindi ? 'पूरा नाम' : 'Full Name'}
+                      </label>
                       <input
                         type="text"
                         value={customerName}
                         onChange={(e) => setCustomerName(e.target.value)}
-                        placeholder="उदा. राजेश पटेल"
+                        placeholder={isHindi ? "उदा. राजेश पटेल" : "e.g. Rajesh Patel"}
                         className="w-full px-3 py-2 text-xs rounded-lg border border-warm-300 focus:outline-none focus:ring-2 focus:ring-forest-800"
                       />
                     </div>
                     <div>
-                      <label className="text-[11px] font-medium text-warm-700 block mb-1">मोबाइल नंबर</label>
+                      <label className="text-[11px] font-medium text-warm-700 block mb-1">
+                        {isHindi ? 'मोबाइल नंबर' : 'Mobile Number'}
+                      </label>
                       <input
                         type="tel"
                         value={customerPhone}
                         onChange={(e) => setCustomerPhone(e.target.value)}
-                        placeholder="उदा. 98765 43210"
+                        placeholder={isHindi ? "उदा. 98765 43210" : "e.g. +91 98765 43210"}
                         className="w-full px-3 py-2 text-xs rounded-lg border border-warm-300 focus:outline-none focus:ring-2 focus:ring-forest-800"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="text-[11px] font-medium text-warm-700 block mb-1">ग्राम / तहसील / जिला</label>
+                    <label className="text-[11px] font-medium text-warm-700 block mb-1">
+                      {isHindi ? 'ग्राम / तहसील / जिला' : 'Village / Tehsil / District'}
+                    </label>
                     <input
                       type="text"
                       value={customerLocation}
                       onChange={(e) => setCustomerLocation(e.target.value)}
-                      placeholder="उदा. ग्राम धरमपुरा, जिला रायपुर, छत्तीसगढ़"
+                      placeholder={isHindi ? "उदा. ग्राम धरमपुरा, जिला रायपुर, छत्तीसगढ़" : "e.g. Village Dharampura, Raipur, Chhattisgarh"}
                       className="w-full px-3 py-2 text-xs rounded-lg border border-warm-300 focus:outline-none focus:ring-2 focus:ring-forest-800"
                     />
                   </div>
@@ -670,7 +750,7 @@ export const Marketplace: React.FC = () => {
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-[#25D366] hover:bg-[#20ba59] text-white shadow-sm transition active:scale-98"
                   >
                     <MessageSquare className="w-4 h-4" />
-                    <span>WhatsApp पर सीधा प्रेषण आदेश भेजें</span>
+                    <span>{isHindi ? 'WhatsApp पर सीधा प्रेषण आदेश भेजें' : 'Send Dispatch Request via WhatsApp'}</span>
                   </button>
 
                   <div className="flex gap-2">
@@ -681,12 +761,12 @@ export const Marketplace: React.FC = () => {
                       {orderCopied ? (
                         <>
                           <Check className="w-3.5 h-3.5 text-nature-600" />
-                          <span>सूची कॉपी हो गई!</span>
+                          <span>{isHindi ? 'सूची कॉपी हो गई!' : 'Order Summary Copied!'}</span>
                         </>
                       ) : (
                         <>
                           <Copy className="w-3.5 h-3.5 text-warm-600" />
-                          <span>आदेश सूची कॉपी करें</span>
+                          <span>{isHindi ? 'आदेश सूची कॉपी करें' : 'Copy Order Summary'}</span>
                         </>
                       )}
                     </button>
@@ -696,13 +776,15 @@ export const Marketplace: React.FC = () => {
                       className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-warm-100 hover:bg-warm-200 text-forest-900 border border-warm-300 transition"
                     >
                       <ExternalLink className="w-3.5 h-3.5 text-warm-600" />
-                      <span>ईमेल प्रेषण</span>
+                      <span>{isHindi ? 'ईमेल प्रेषण' : 'Email Dispatch'}</span>
                     </a>
                   </div>
                 </div>
 
                 <div className="mt-4 p-2.5 rounded-lg bg-warm-50 border border-warm-200 text-[10px] text-warm-500 text-center">
-                  हब प्रेषण सहायता: <strong>contact@harkhil.com</strong> • समय: सोम - शनि (9:00 AM – 6:00 PM IST)
+                  {isHindi
+                    ? 'हब प्रेषण सहायता: contact@harkhil.com • समय: सोम - शनि (9:00 AM – 6:00 PM IST)'
+                    : 'Hub Dispatch Desk: contact@harkhil.com • Hours: Mon - Sat (9:00 AM – 6:00 PM IST)'}
                 </div>
               </div>
             </div>
