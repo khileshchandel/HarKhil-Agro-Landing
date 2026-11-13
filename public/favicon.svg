@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background circular badge -->
+  <rect width="64" height="64" rx="16" fill="#081c15"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" stroke="#d4af37" stroke-width="1.5" stroke-opacity="0.4"/>
+  
+  <!-- Stylized leaf & sprout with gold accent -->
+  <path d="M32 12C32 12 21 24 21 35C21 41.075 25.925 46 32 46C38.075 46 43 41.075 43 35C43 24 32 12 32 12Z" fill="#1b4332" stroke="#52b788" stroke-width="2"/>
+  <path d="M32 16V44" stroke="#74c69d" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 28C35 25 39 26 39 26" stroke="#d4af37" stroke-width="2" stroke-linecap="round"/>
+  <path d="M32 34C28 32 25 33 25 33" stroke="#52b788" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Sprout node base -->
+  <circle cx="32" cy="46" r="3" fill="#d4af37"/>
+  <path d="M22 52H42" stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-opacity="0.8"/>
+</svg>
+

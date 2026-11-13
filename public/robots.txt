@@ -1,0 +1,6 @@
+# HarKhil Agro Robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://agro.harkhil.com/sitemap.xml
+
